@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="339" id="DWr-QB-iYr" customClass="FacebookNativeAdCell">
+            <rect key="frame" x="0.0" y="0.0" width="317" height="323"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DWr-QB-iYr" id="y0o-qj-zr9">
+                <rect key="frame" x="0.0" y="0.0" width="317" height="322.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XhS-af-Tjx" customClass="FBMediaView">
+                        <rect key="frame" x="8" y="8" width="38" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="XhS-af-Tjx" secondAttribute="height" multiplier="1:1" id="xW0-9f-heL"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="256" translatesAutoresizingMaskIntoConstraints="NO" id="KcB-0C-7Go" userLabel="Ad Title Label">
+                        <rect key="frame" x="52" y="8" width="0.0" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="hly-ZV-2bl"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="187" id="vhr-v7-NSx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DwX-ga-1qb" userLabel="Sponsored Label">
+                        <rect key="frame" x="52" y="30" width="0.0" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="1rq-QF-e3d"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zz0-8v-Wrv" customClass="FBAdChoicesView">
+                        <rect key="frame" x="297" y="0.0" width="20" height="20"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="M6r-RX-6ju"/>
+                            <constraint firstAttribute="width" constant="20" id="gm9-FF-4X5"/>
+                        </constraints>
+                    </view>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kVB-F8-ej8" customClass="FBMediaView">
+                        <rect key="frame" x="8" y="53" width="301" height="184.5"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </view>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="191" translatesAutoresizingMaskIntoConstraints="NO" id="bSg-R8-QVm" userLabel="Ad Body Label">
+                        <rect key="frame" x="8" y="262.5" width="192" height="50"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ovy-mr-Vum" userLabel="Ad Social Context Label">
+                        <rect key="frame" x="8" y="245.5" width="0.0" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="pDc-2S-GJV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button hidden="YES" opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5r-Nf-hmC" userLabel="Ad Call To Action Button">
+                        <rect key="frame" x="209" y="262.5" width="100" height="28"/>
+                        <color key="backgroundColor" red="0.35686274509999999" green="0.57647058819999997" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="Yf0-qT-CWS"/>
+                            <constraint firstAttribute="height" constant="28" id="dNE-7H-5TL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                        <state key="normal">
+                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="kVB-F8-ej8" firstAttribute="top" secondItem="DwX-ga-1qb" secondAttribute="bottom" constant="7" id="3MB-1g-Gol"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DwX-ga-1qb" secondAttribute="trailing" constant="8" id="4hD-OQ-65y"/>
+                    <constraint firstItem="zz0-8v-Wrv" firstAttribute="top" secondItem="y0o-qj-zr9" secondAttribute="top" id="5sm-Zw-8HL"/>
+                    <constraint firstAttribute="bottom" secondItem="bSg-R8-QVm" secondAttribute="bottom" constant="10" id="C2b-oF-1fR"/>
+                    <constraint firstItem="ovy-mr-Vum" firstAttribute="leading" secondItem="bSg-R8-QVm" secondAttribute="leading" id="CXl-Eb-Esk"/>
+                    <constraint firstItem="DwX-ga-1qb" firstAttribute="top" secondItem="KcB-0C-7Go" secondAttribute="bottom" id="Cts-SV-cqb"/>
+                    <constraint firstItem="x5r-Nf-hmC" firstAttribute="leading" secondItem="bSg-R8-QVm" secondAttribute="trailing" constant="9" id="GgD-TL-Y6G"/>
+                    <constraint firstItem="XhS-af-Tjx" firstAttribute="top" secondItem="KcB-0C-7Go" secondAttribute="top" id="IEz-XG-ne9"/>
+                    <constraint firstItem="kVB-F8-ej8" firstAttribute="top" secondItem="XhS-af-Tjx" secondAttribute="bottom" constant="7" id="Nbr-o4-XFT"/>
+                    <constraint firstItem="XhS-af-Tjx" firstAttribute="width" secondItem="XhS-af-Tjx" secondAttribute="height" multiplier="1:1" id="Pzr-Y5-m48"/>
+                    <constraint firstItem="XhS-af-Tjx" firstAttribute="leading" secondItem="y0o-qj-zr9" secondAttribute="leading" constant="8" id="Qip-lc-FoL"/>
+                    <constraint firstItem="ovy-mr-Vum" firstAttribute="top" secondItem="kVB-F8-ej8" secondAttribute="bottom" constant="8" symbolic="YES" id="ZM0-qU-gLE"/>
+                    <constraint firstItem="DwX-ga-1qb" firstAttribute="leading" secondItem="XhS-af-Tjx" secondAttribute="trailing" constant="6" id="dEe-WV-Pff"/>
+                    <constraint firstItem="XhS-af-Tjx" firstAttribute="top" secondItem="y0o-qj-zr9" secondAttribute="topMargin" constant="-3" id="eFC-wg-DFN"/>
+                    <constraint firstItem="XhS-af-Tjx" firstAttribute="leading" secondItem="kVB-F8-ej8" secondAttribute="leading" id="f2Q-qm-PjU"/>
+                    <constraint firstItem="bSg-R8-QVm" firstAttribute="top" secondItem="x5r-Nf-hmC" secondAttribute="top" id="g8i-oY-sHx"/>
+                    <constraint firstItem="x5r-Nf-hmC" firstAttribute="top" secondItem="ovy-mr-Vum" secondAttribute="bottom" constant="2" id="iI1-Mi-weq"/>
+                    <constraint firstItem="KcB-0C-7Go" firstAttribute="leading" secondItem="DwX-ga-1qb" secondAttribute="leading" id="qKX-Qh-Hwd"/>
+                    <constraint firstAttribute="trailing" secondItem="x5r-Nf-hmC" secondAttribute="trailing" constant="8" id="sLf-aC-CJU"/>
+                    <constraint firstAttribute="trailing" secondItem="kVB-F8-ej8" secondAttribute="trailing" constant="8" id="vn2-Eh-rRM"/>
+                    <constraint firstItem="kVB-F8-ej8" firstAttribute="leading" secondItem="ovy-mr-Vum" secondAttribute="leading" id="wIu-Zz-h8m"/>
+                    <constraint firstAttribute="trailing" secondItem="zz0-8v-Wrv" secondAttribute="trailing" id="xLg-yU-Uvl"/>
+                    <constraint firstAttribute="bottom" secondItem="x5r-Nf-hmC" secondAttribute="bottom" constant="32" id="ybc-r7-frF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="adBodyLabel" destination="bSg-R8-QVm" id="pET-Dh-adE"/>
+                <outlet property="adChoicesView" destination="zz0-8v-Wrv" id="Haq-tn-bcb"/>
+                <outlet property="adIconView" destination="XhS-af-Tjx" id="yeS-iJ-9FB"/>
+                <outlet property="adMediaView" destination="kVB-F8-ej8" id="AGb-v5-fkr"/>
+                <outlet property="adSocialContextLabel" destination="ovy-mr-Vum" id="QCF-6h-2Iw"/>
+                <outlet property="adTitleLabel" destination="KcB-0C-7Go" id="80e-Mm-W48"/>
+                <outlet property="adToCallButton" destination="x5r-Nf-hmC" id="4HT-aJ-oei"/>
+                <outlet property="sponsoredLabel" destination="DwX-ga-1qb" id="xaJ-29-66O"/>
+            </connections>
+            <point key="canvasLocation" x="128.80000000000001" y="-178.56071964017991"/>
+        </tableViewCell>
+    </objects>
+</document>
