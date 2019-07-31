@@ -11,11 +11,14 @@
 #import <UIKit/UIKit.h>
 #import "IconAdBase.h"
 #import "IconAdView.h"
+#import "AppDelegate.h"
+#import "Config.h"
 
 @interface ViewController (){
     BOOL userConsent;
     int iconAdXAxis;
     int iconAdYAxis;
+    NSMutableArray *iconAdViewArray;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *iconView;
@@ -28,12 +31,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    indexField.text = @"0";
+    indexField.text = @"1";
     userConsent = true;
+    iconAdViewArray = [NSMutableArray new];
+    
+    [ConsoliAdsMediation sharedInstance].productName  = [AppDelegate sharedInstance].configuration.productName;
+    [ConsoliAdsMediation sharedInstance].bundleIdentifier = [AppDelegate sharedInstance].configuration.bundleIdentifier;
 
-    [ConsoliAdsMediation sharedInstance].productName  = @"Native iOS Test App";
-    [ConsoliAdsMediation sharedInstance].bundleIdentifier = @"com.pen.nativetestapp";
-    [[ConsoliAdsMediation sharedInstance] initializeWithUserConsent:userConsent viewController:self];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.navigationController setNavigationBarHidden:true];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.navigationController setNavigationBarHidden:false];
 }
 
 - (IBAction)allConsoliFunctionalities:(UIButton *)sender {
@@ -93,7 +107,7 @@
             
         case 12:
             
-            [self  showMultiIconAds];
+            [self  showMultiIconAds:sender];
             break;
             
         case 13:
@@ -103,7 +117,7 @@
             
         case 14:
             
-            [self  hideIconAd];
+            [self  showConsoliAdsNativeAd];
             break;
             
         default:
@@ -118,7 +132,6 @@
 }
 
 -(void) initConsoliMediation {
-    
     
     /*
      Optional Parameters:
@@ -179,18 +192,27 @@
     [[ConsoliAdsMediation sharedInstance] hideBanner];
 }
 
-- (void)showFacebookNativeAd  {
-    
-    //        ConsoliMediation.Instance.configureFacebookNativeAd(sceneIndex: index, adSocialContextLabel: adSocialContextLabel!, adBodyLabel: adBodyLabel!, adTitleLabel: adTitleLabel!, sponsoredLabel: adTitleLabel!, adUIView: adUIView!, adActionButton: adCallToActionButton!, adIconView: adIconView!, adCoverMediaView: adCoverMediaView!, adChoicesView: adChoicesView!, viewController: self)
-    //        adUIView?.isHidden = false
-    // ConsoliMediation.Instance.ShowNativeAd(sceneIndex: index, viewController: self)
-}
-
 -(void) showAdmobNativeAd {
     
     int sceneIndex = [indexField.text intValue];
     [[ConsoliAdsMediation sharedInstance] configureAdmobNativeAd:sceneIndex nativeAdPlaceholder:nativeAdPlaceholder viewController:self];
     [[ConsoliAdsMediation sharedInstance] ShowNativeAd:sceneIndex viewController:self];
+}
+
+- (void)showConsoliAdsNativeAd  {
+    
+    int sceneIndex = [indexField.text intValue];
+    [[ConsoliAdsMediation sharedInstance] configureConsoliAdsNativeAd:sceneIndex nativeAdPlaceholder:nativeAdPlaceholder];
+    [[ConsoliAdsMediation sharedInstance]ShowNativeAd:sceneIndex viewController:self];
+}
+
+-(void) showFacebookNativeAd  {
+    
+    int index = [indexField.text intValue];
+    
+//    [[ConsoliAdsMediation sharedInstance] configureFacebookNativeAd:index adSocialContextLabel:_adSocialContextLabel adBodyLabel:_adBodyLabel adTitleLabel:_adTitleLabel sponsoredLabel:_sponsoredLabel adUIView:_adUIView adActionButton:_adCallToActionButton viewController:self adIconView:_adIconView adCoverMediaView:_adCoverMediaView adChoicesView:_adChoicesView];
+    
+//    [[ConsoliAdsMediation sharedInstance] ShowNativeAd:index viewController:self];
 }
 
 -(void) hideNativeAd  {
@@ -207,42 +229,46 @@
 }
 
 
-- (void)showMultiIconAds  {
+- (void)showMultiIconAds:(UIButton *)sender  {
     
     int sceneIndex = [indexField.text intValue];
     
     IconAdBase *iconBase = (IconAdBase*)[[ConsoliAdsMediation sharedInstance] getIconAd:sceneIndex];
-    IconAdView *view = [[IconAdView alloc]initWithAd:iconBase];
-
+    IconAdView *view = [[IconAdView alloc] initWithAd:iconBase];
+    
     if (view != nil) {
         CGRect frame = view.frame;
         frame.origin.x = iconAdXAxis;
         frame.origin.y = iconAdYAxis;
         view.frame = frame;
         iconAdXAxis += 70;
-        if (iconAdXAxis >= [UIScreen mainScreen].bounds.size.width) {
+        if (iconAdXAxis >= sender.superview.bounds.size.width) {
             iconAdYAxis += 70;
             iconAdXAxis = 0;
         }
     }
     
     if (iconBase != nil) {
-        [self.nativeAdPlaceholder addSubview:view];
+        [self.iconView addSubview:view];
+        [iconAdViewArray addObject:view];
     }
-}
-
-- (void)showConsoliAdsNativeAd  {
-    
-    int sceneIndex = [indexField.text intValue];
-    [[ConsoliAdsMediation sharedInstance]configureConsoliAdsIconAd:sceneIndex iconAdPlaceholder:nativeAdPlaceholder];
-    [[ConsoliAdsMediation sharedInstance]ShowNativeAd:sceneIndex viewController:self];
 }
 
 - (void)hideIconAd  {
     
-    int sceneIndex = [indexField.text intValue];
-    [[ConsoliAdsMediation sharedInstance]onDestroyForIconAd:sceneIndex];
+    UIView *view = [iconAdViewArray lastObject];
+    [view removeFromSuperview];
+    [iconAdViewArray removeLastObject];
 }
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(nullable id)sender NS_AVAILABLE_IOS(5_0) {
+    
+    int sceneIndex = [indexField.text intValue];
+    [AppDelegate sharedInstance].configuration.sceneIndex = sceneIndex;
+
+}
+
 
 @end
 

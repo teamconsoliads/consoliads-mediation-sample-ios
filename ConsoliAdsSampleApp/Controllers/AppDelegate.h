@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Config;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (strong, nonatomic) Config *configuration;
+
++ (AppDelegate*)sharedInstance;
 
 @end
 

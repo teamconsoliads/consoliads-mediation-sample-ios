@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D2D932D22AE355F00FB5977 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2D932C22AE355F00FB5977 /* Config.m */; };
 		1D33BFCB217DA81D0013DDF9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D33BFCA217DA81D0013DDF9 /* AppDelegate.m */; };
 		1D33BFCE217DA81D0013DDF9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D33BFCD217DA81D0013DDF9 /* ViewController.m */; };
 		1D33BFD1217DA81D0013DDF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D33BFCF217DA81D0013DDF9 /* Main.storyboard */; };
@@ -24,7 +25,7 @@
 		1D4FA92022689FE300D01B28 /* UnifiedNativeAdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FA91122689FE300D01B28 /* UnifiedNativeAdCell.xib */; };
 		1D4FA92322689FE300D01B28 /* NativeAdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FA91522689FE300D01B28 /* NativeAdsViewController.m */; };
 		1D4FA92C227060A500D01B28 /* NativeAdCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FA92B227060A400D01B28 /* NativeAdCellView.xib */; };
-		3A10AF942257A780005DF626 /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A10AF842257A77E005DF626 /* NativeAdView.xib */; };
+		1D5B86942297EF370040E1BC /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B86932297EF370040E1BC /* View.xib */; };
 		3A10AF9D2257AA57005DF626 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A10AF9C2257AA57005DF626 /* AdSupport.framework */; };
 		3A10AF9F2257AA63005DF626 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A10AF9E2257AA63005DF626 /* AudioToolbox.framework */; };
 		3A10AFA12257AA6E005DF626 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A10AFA02257AA6E005DF626 /* AVFoundation.framework */; };
@@ -61,6 +62,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1D2D932B22AE355F00FB5977 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		1D2D932C22AE355F00FB5977 /* Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		1D33BFC6217DA81D0013DDF9 /* ConsoliAdsSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConsoliAdsSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D33BFC9217DA81D0013DDF9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D33BFCA217DA81D0013DDF9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -86,7 +89,7 @@
 		1D4FA91422689FE300D01B28 /* NativeAdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeAdsViewController.h; sourceTree = "<group>"; };
 		1D4FA91522689FE300D01B28 /* NativeAdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeAdsViewController.m; sourceTree = "<group>"; };
 		1D4FA92B227060A400D01B28 /* NativeAdCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeAdCellView.xib; sourceTree = "<group>"; };
-		3A10AF842257A77E005DF626 /* NativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeAdView.xib; sourceTree = "<group>"; };
+		1D5B86932297EF370040E1BC /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		3A10AF9C2257AA57005DF626 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		3A10AF9E2257AA63005DF626 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3A10AFA02257AA6E005DF626 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -139,6 +142,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D2D932A22AE350900FB5977 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1D33BFC9217DA81D0013DDF9 /* AppDelegate.h */,
+				1D33BFCA217DA81D0013DDF9 /* AppDelegate.m */,
+				1D33BFCC217DA81D0013DDF9 /* ViewController.h */,
+				1D33BFCD217DA81D0013DDF9 /* ViewController.m */,
+				1D2D932B22AE355F00FB5977 /* Config.h */,
+				1D2D932C22AE355F00FB5977 /* Config.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1D2D948122AF740A00FB5977 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 		1D33BFBD217DA81D0013DDF9 = {
 			isa = PBXGroup;
 			children = (
@@ -159,15 +182,13 @@
 		1D33BFC8217DA81D0013DDF9 /* ConsoliAdsSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				1D2D948122AF740A00FB5977 /* Frameworks */,
 				3A14747722854FE000B38FCC /* Views */,
 				3A14747622854FC400B38FCC /* Images */,
 				1DF6091F228A9AF3000782B1 /* Mediation */,
-				1D33BFC9217DA81D0013DDF9 /* AppDelegate.h */,
-				1D33BFCA217DA81D0013DDF9 /* AppDelegate.m */,
-				1D33BFCC217DA81D0013DDF9 /* ViewController.h */,
-				1D33BFCD217DA81D0013DDF9 /* ViewController.m */,
 				1D33BFD7217DA8200013DDF9 /* Info.plist */,
 				1D33BFD8217DA8200013DDF9 /* main.m */,
+				1D2D932A22AE350900FB5977 /* Controllers */,
 				1D4FA90222689FE300D01B28 /* ListViewController */,
 			);
 			path = ConsoliAdsSampleApp;
@@ -222,8 +243,8 @@
 		3A14747722854FE000B38FCC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3A10AF842257A77E005DF626 /* NativeAdView.xib */,
 				1D4FA92B227060A400D01B28 /* NativeAdCellView.xib */,
+				1D5B86932297EF370040E1BC /* View.xib */,
 				1D33BFCF217DA81D0013DDF9 /* Main.storyboard */,
 				1D33BFD2217DA8200013DDF9 /* Assets.xcassets */,
 				1D33BFD4217DA8200013DDF9 /* LaunchScreen.storyboard */,
@@ -315,7 +336,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A10AF942257A780005DF626 /* NativeAdView.xib in Resources */,
 				1D4FA92022689FE300D01B28 /* UnifiedNativeAdCell.xib in Resources */,
 				1D4FA92C227060A500D01B28 /* NativeAdCellView.xib in Resources */,
 				1D33BFD6217DA8200013DDF9 /* LaunchScreen.storyboard in Resources */,
@@ -324,6 +344,7 @@
 				1D4FA91822689FE300D01B28 /* FacebookNativeAdCell.xib in Resources */,
 				1D33BFD3217DA8200013DDF9 /* Assets.xcassets in Resources */,
 				1D4FA91922689FE300D01B28 /* menu_item_image-web.png in Resources */,
+				1D5B86942297EF370040E1BC /* View.xib in Resources */,
 				3AD70C3721CBB6F400AA99DD /* Consoli Ads Logo for web (for dark backgrounds).png in Resources */,
 				1D33BFD1217DA81D0013DDF9 /* Main.storyboard in Resources */,
 				3AD70C3521CBB6F400AA99DD /* uncheck.png in Resources */,
@@ -341,6 +362,7 @@
 			files = (
 				1D33BFCE217DA81D0013DDF9 /* ViewController.m in Sources */,
 				1D4FA91E22689FE300D01B28 /* MenuItemViewCell.m in Sources */,
+				1D2D932D22AE355F00FB5977 /* Config.m in Sources */,
 				1D33BFD9217DA8200013DDF9 /* main.m in Sources */,
 				1D4FA92322689FE300D01B28 /* NativeAdsViewController.m in Sources */,
 				1D4FA91A22689FE300D01B28 /* MenuItem.m in Sources */,
@@ -494,8 +516,77 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MediationTest",
+					"$(PROJECT_DIR)/MediationTest/Mediation/InMobi_standalone_plugin_for_4.x_iOS_\\ 8.0.9",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Tapjoy_standalone_plugin_for_4.x_iOS_12.2.1/Tapjoy.embeddedframework",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Mopub_standalone_plugin_for_4.x_iOS_5.6.0",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Vungle_standalone_plugin_for_4.x_iOS_6.3.2",
+					"$(PROJECT_DIR)/MediationTest/Mediation/StartApp_standalone_plugin_for_4.x_iOS_3.12.0",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Mobfox_standalone_plugin_for_4.x_iOS_3.6.1",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Mobfox_standalone_plugin_for_4.x_iOS_3.6.1/MobFoxSDKCore.embeddedframework",
+					"$(PROJECT_DIR)/MediationTest/Mediation/FBAudienceNetwork_standalone_plugin_for_4.x_iOS_5.3.1",
+					"$(PROJECT_DIR)/MediationTest/Mediation/MyTarget_standalone_plugin_for_4.x_iOS_5.2.0",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Admob_standalone_plugin_for_4.x_iOS_7.44.0",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/AdColony",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/AppLovinSDK/applovin-ios-sdk-6.6.0",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/ChartboostSDK",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/FBAudienceNetwork/Static",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/Google-Mobile-Ads-SDK/Frameworks/frameworks",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/GoogleAppMeasurement/Frameworks",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/Heyzap/heyzap-ads-sdk-9.55.1/ios-sdk",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/InMobiSDK",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/IronSourceSDK/IronSource",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/leadbolt_native_ios_sdk_v9.0",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/MobFoxSDK",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/MobFoxSDK/MobFoxSDKCore.embeddedframework",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/mopub-ios-sdk",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/myTargetSDK",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/StartAppSDK",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/TapjoySDK/TapjoySDK_iOS_v12.2.1/Libraries/Tapjoy.embeddedframework",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/UnityAds",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/VungleSDK-iOS",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/Google-Mobile-Ads-SDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/FBAudienceNetwork/Static",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/AdColony",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/AppLovinSDK/applovin-ios-sdk-6.6.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/ChartboostSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Google-Mobile-Ads-SDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Heyzap/heyzap-ads-sdk-9.55.1/ios-sdk",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/InMobiSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/IronSourceSDK/IronSource",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/leadbolt_native_ios_sdk_v9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/MobFoxSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/MobFoxSDK/MobFoxSDKCore.embeddedframework",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/mopub-ios-sdk",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/myTargetSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/StartAppSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/TapjoySDK/TapjoySDK_iOS_v12.2.1/Libraries/Tapjoy.embeddedframework",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/UnityAds",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/VungleSDK-iOS",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/FBAudienceNetwork",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/TapjoySDK_iOS_v12.2.1/Libraries/Tapjoy.embeddedframework",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/IronSource",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/applovin-ios-sdk-6.6.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/heyzap-ads-sdk-9.55.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Applovin_standalone_plugin_for_4.x_iOS_6.7.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Vungle_standalone_plugin_for_4.x_iOS_6.3.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/UnityAds_standalone_plugin_for_4.x_iOS_3.1.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Chartboost_standalone_plugin_for_4.x_iOS_7.5.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Admob_standalone_plugin_for_4.x_iOS_7.46.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Ironsource_standalone_plugin_for_4.x_iOS_6.8.4.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/FBAudienceNetwork_standalone_plugin_for_4.x_iOS_5.4.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mopub_standalone_plugin_for_4.x_iOS_5.7.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Inmobi_standalone_plugin_for_4.x_iOS_7.3.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Startapp_standalone_plugin_for_4.x_iOS_4.0.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Adcolony_standalone_plugin_for_4.x_iOS_3.3.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mobfox_standalone_plugin_for_4.x_iOS_3.6.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mobfox_standalone_plugin_for_4.x_iOS_3.6.1/MobFoxSDKCore.embeddedframework",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/TapJoy_standalone_plugin_for_4.x_iOS_12.3.1/Tapjoy.embeddedframework",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Heyzap_standalone_plugin_for_4.x_iOS_9.56.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/PlayableAds",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/mintegral",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mytarget_standalone_plugin_for_4.x_iOS_5.3.2",
 				);
-				INFOPLIST_FILE = MediationTest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ConsoliAdsSampleApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -505,6 +596,49 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MediationTest",
 					"$(PROJECT_DIR)/MediationTest/Mediation",
+					"$(PROJECT_DIR)/MediationTest/Mediation/InMobi_standalone_plugin_for_4.x_iOS_\\ 8.0.9",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Tapjoy_standalone_plugin_for_4.x_iOS_12.2.1",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Mopub_standalone_plugin_for_4.x_iOS_5.6.0",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Vungle_standalone_plugin_for_4.x_iOS_6.3.2",
+					"$(PROJECT_DIR)/MediationTest/Mediation/StartApp_standalone_plugin_for_4.x_iOS_3.12.0",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Mobfox_standalone_plugin_for_4.x_iOS_3.6.1",
+					"$(PROJECT_DIR)/MediationTest/Mediation/FBAudienceNetwork_standalone_plugin_for_4.x_iOS_5.3.1",
+					"$(PROJECT_DIR)/MediationTest/Mediation/MyTarget_standalone_plugin_for_4.x_iOS_5.2.0",
+					"$(PROJECT_DIR)/MediationTest/mediationfiles",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Admob_standalone_plugin_for_4.x_iOS_7.44.0",
+					"$(PROJECT_DIR)/MediationTest/MediationCode/Kidoz_Mediation",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/MobFoxSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/UnityAds",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/TapjoySDK_iOS_v12.2.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/InMobiSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/mopub-ios-sdk",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/VungleSDK-iOS",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/IronSource",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/StartAppSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/leadbolt_native_ios_sdk_v9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Kidoz",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/myTargetSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/applovin-ios-sdk-6.6.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/heyzap-ads-sdk-9.55.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/kidoz_standalone_unity_mediation_plugin_for_4.x_Android_v_0.8.8.2__iOS_v_1.3.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Applovin_standalone_plugin_for_4.x_iOS_6.7.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Vungle_standalone_plugin_for_4.x_iOS_6.3.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/UnityAds_standalone_plugin_for_4.x_iOS_3.1.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Chartboost_standalone_plugin_for_4.x_iOS_7.5.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Admob_standalone_plugin_for_4.x_iOS_7.46.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Ironsource_standalone_plugin_for_4.x_iOS_6.8.4.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/FBAudienceNetwork_standalone_plugin_for_4.x_iOS_5.4.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mopub_standalone_plugin_for_4.x_iOS_5.7.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Inmobi_standalone_plugin_for_4.x_iOS_7.3.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Startapp_standalone_plugin_for_4.x_iOS_4.0.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Adcolony_standalone_plugin_for_4.x_iOS_3.3.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mobfox_standalone_plugin_for_4.x_iOS_3.6.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/TapJoy_standalone_plugin_for_4.x_iOS_12.3.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Heyzap_standalone_plugin_for_4.x_iOS_9.56.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/PlayableAds",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/mintegral",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mytarget_standalone_plugin_for_4.x_iOS_5.3.2",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sheeda.sampleapp;
@@ -525,8 +659,78 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MediationTest",
+					"$(PROJECT_DIR)/MediationTest/Mediation/InMobi_standalone_plugin_for_4.x_iOS_\\ 8.0.9",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Tapjoy_standalone_plugin_for_4.x_iOS_12.2.1/Tapjoy.embeddedframework",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Mopub_standalone_plugin_for_4.x_iOS_5.6.0",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Vungle_standalone_plugin_for_4.x_iOS_6.3.2",
+					"$(PROJECT_DIR)/MediationTest/Mediation/StartApp_standalone_plugin_for_4.x_iOS_3.12.0",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Mobfox_standalone_plugin_for_4.x_iOS_3.6.1",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Mobfox_standalone_plugin_for_4.x_iOS_3.6.1/MobFoxSDKCore.embeddedframework",
+					"$(PROJECT_DIR)/MediationTest/Mediation/FBAudienceNetwork_standalone_plugin_for_4.x_iOS_5.3.1",
+					"$(PROJECT_DIR)/MediationTest/Mediation/MyTarget_standalone_plugin_for_4.x_iOS_5.2.0",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Admob_standalone_plugin_for_4.x_iOS_7.44.0",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/AdColony",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/AppLovinSDK/applovin-ios-sdk-6.6.0",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/ChartboostSDK",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/FBAudienceNetwork/Static",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/Google-Mobile-Ads-SDK/Frameworks/frameworks",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/GoogleAppMeasurement/Frameworks",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/Heyzap/heyzap-ads-sdk-9.55.1/ios-sdk",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/InMobiSDK",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/IronSourceSDK/IronSource",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/leadbolt_native_ios_sdk_v9.0",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/MobFoxSDK",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/MobFoxSDK/MobFoxSDKCore.embeddedframework",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/mopub-ios-sdk",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/myTargetSDK",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/StartAppSDK",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/TapjoySDK/TapjoySDK_iOS_v12.2.1/Libraries/Tapjoy.embeddedframework",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/UnityAds",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/VungleSDK-iOS",
+					"$(PROJECT_DIR)/MediationTest/Frameworks/Google-Mobile-Ads-SDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/FBAudienceNetwork/Static",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/AdColony",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/AppLovinSDK/applovin-ios-sdk-6.6.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/ChartboostSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Google-Mobile-Ads-SDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Heyzap/heyzap-ads-sdk-9.55.1/ios-sdk",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/InMobiSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/IronSourceSDK/IronSource",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/leadbolt_native_ios_sdk_v9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/MobFoxSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/MobFoxSDK/MobFoxSDKCore.embeddedframework",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/mopub-ios-sdk",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/myTargetSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/StartAppSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/TapjoySDK/TapjoySDK_iOS_v12.2.1/Libraries/Tapjoy.embeddedframework",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/UnityAds",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/VungleSDK-iOS",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/FBAudienceNetwork",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/TapjoySDK_iOS_v12.2.1/Libraries/Tapjoy.embeddedframework",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/IronSource",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/applovin-ios-sdk-6.6.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/heyzap-ads-sdk-9.55.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Applovin_standalone_plugin_for_4.x_iOS_6.7.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Vungle_standalone_plugin_for_4.x_iOS_6.3.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/UnityAds_standalone_plugin_for_4.x_iOS_3.1.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Chartboost_standalone_plugin_for_4.x_iOS_7.5.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Admob_standalone_plugin_for_4.x_iOS_7.46.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Ironsource_standalone_plugin_for_4.x_iOS_6.8.4.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/FBAudienceNetwork_standalone_plugin_for_4.x_iOS_5.4.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mopub_standalone_plugin_for_4.x_iOS_5.7.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Inmobi_standalone_plugin_for_4.x_iOS_7.3.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Startapp_standalone_plugin_for_4.x_iOS_4.0.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Adcolony_standalone_plugin_for_4.x_iOS_3.3.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mobfox_standalone_plugin_for_4.x_iOS_3.6.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mobfox_standalone_plugin_for_4.x_iOS_3.6.1/MobFoxSDKCore.embeddedframework",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/TapJoy_standalone_plugin_for_4.x_iOS_12.3.1/Tapjoy.embeddedframework",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Heyzap_standalone_plugin_for_4.x_iOS_9.56.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/PlayableAds",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/mintegral",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mytarget_standalone_plugin_for_4.x_iOS_5.3.2",
 				);
-				INFOPLIST_FILE = MediationTest/Info.plist;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				INFOPLIST_FILE = "$(SRCROOT)/ConsoliAdsSampleApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -536,6 +740,49 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MediationTest",
 					"$(PROJECT_DIR)/MediationTest/Mediation",
+					"$(PROJECT_DIR)/MediationTest/Mediation/InMobi_standalone_plugin_for_4.x_iOS_\\ 8.0.9",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Tapjoy_standalone_plugin_for_4.x_iOS_12.2.1",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Mopub_standalone_plugin_for_4.x_iOS_5.6.0",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Vungle_standalone_plugin_for_4.x_iOS_6.3.2",
+					"$(PROJECT_DIR)/MediationTest/Mediation/StartApp_standalone_plugin_for_4.x_iOS_3.12.0",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Mobfox_standalone_plugin_for_4.x_iOS_3.6.1",
+					"$(PROJECT_DIR)/MediationTest/Mediation/FBAudienceNetwork_standalone_plugin_for_4.x_iOS_5.3.1",
+					"$(PROJECT_DIR)/MediationTest/Mediation/MyTarget_standalone_plugin_for_4.x_iOS_5.2.0",
+					"$(PROJECT_DIR)/MediationTest/mediationfiles",
+					"$(PROJECT_DIR)/MediationTest/Mediation/Admob_standalone_plugin_for_4.x_iOS_7.44.0",
+					"$(PROJECT_DIR)/MediationTest/MediationCode/Kidoz_Mediation",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/MobFoxSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/UnityAds",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/TapjoySDK_iOS_v12.2.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/InMobiSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/mopub-ios-sdk",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/VungleSDK-iOS",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/IronSource",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/StartAppSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/leadbolt_native_ios_sdk_v9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Kidoz",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/myTargetSDK",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/applovin-ios-sdk-6.6.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/heyzap-ads-sdk-9.55.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/kidoz_standalone_unity_mediation_plugin_for_4.x_Android_v_0.8.8.2__iOS_v_1.3.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Applovin_standalone_plugin_for_4.x_iOS_6.7.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Vungle_standalone_plugin_for_4.x_iOS_6.3.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/UnityAds_standalone_plugin_for_4.x_iOS_3.1.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Chartboost_standalone_plugin_for_4.x_iOS_7.5.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Admob_standalone_plugin_for_4.x_iOS_7.46.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Ironsource_standalone_plugin_for_4.x_iOS_6.8.4.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/FBAudienceNetwork_standalone_plugin_for_4.x_iOS_5.4.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mopub_standalone_plugin_for_4.x_iOS_5.7.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Inmobi_standalone_plugin_for_4.x_iOS_7.3.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Startapp_standalone_plugin_for_4.x_iOS_4.0.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Adcolony_standalone_plugin_for_4.x_iOS_3.3.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mobfox_standalone_plugin_for_4.x_iOS_3.6.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/TapJoy_standalone_plugin_for_4.x_iOS_12.3.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Heyzap_standalone_plugin_for_4.x_iOS_9.56.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/PlayableAds",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/mintegral",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mytarget_standalone_plugin_for_4.x_iOS_5.3.2",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sheeda.sampleapp;
