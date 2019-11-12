@@ -12,8 +12,8 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        _productName = @"Sample App";
-        _bundleIdentifier = @"com.consoliads.sampleapp";
+        _productName = @"ios";
+        _bundleIdentifier = @"com.consoliads.unity_plugin_5.1.3";
         _sceneIndex = 0; // Don't change it, change it from UI
     }
     return self;

@@ -7,21 +7,26 @@
 //
 
 #import "ViewController.h"
+#import "MediationNativeAdView.h"
 #import "ConsoliAdsMediation.h"
+#import "CANativeAdRequestDelegate.h"
+#import "CAMediatedNativeAd.h"
 #import <UIKit/UIKit.h>
 #import "IconAdBase.h"
 #import "IconAdView.h"
 #import "AppDelegate.h"
 #import "Config.h"
 
-@interface ViewController (){
+@interface ViewController () <ConsoliAdsMediationDelegate, ConsoliAdsMediationRewardedAdDelegate, ConsoliAdsMediationInterstitialAdDelegate, ConsoliAdsMediationBannerAdDelegate, ConsoliAdsMediationIconAdDelegate, CANativeAdRequestDelegate> {
     BOOL userConsent;
     int iconAdXAxis;
     int iconAdYAxis;
     NSMutableArray *iconAdViewArray;
+    NSString *myTag;
+
 }
 
-@property (weak, nonatomic) IBOutlet UIView *iconView;
+@property (weak, nonatomic) IBOutlet MediationNativeAdView *nativeAdView;
 
 @end
 
@@ -31,12 +36,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    indexField.text = @"1";
+    indexField.text = @"0";
+    myTag = @"!--QA-Testing-Listner--!";
     userConsent = true;
     iconAdViewArray = [NSMutableArray new];
-    
-    [ConsoliAdsMediation sharedInstance].productName  = [AppDelegate sharedInstance].configuration.productName;
+
+    [ConsoliAdsMediation sharedInstance].productName = [AppDelegate sharedInstance].configuration.productName;
     [ConsoliAdsMediation sharedInstance].bundleIdentifier = [AppDelegate sharedInstance].configuration.bundleIdentifier;
+    [[ConsoliAdsMediation sharedInstance] setDelegate:self];
+    //    [[ConsoliAdsMediation sharedInstance] setRewardedAdDelegate:self];
+    //    [[ConsoliAdsMediation sharedInstance] setInterstitialAdDelegate:self];
+    //    [[ConsoliAdsMediation sharedInstance] setBannerAdDelegate:self];
+    [[ConsoliAdsMediation sharedInstance] setIconAdDelegate:self];
 
 }
 
@@ -54,70 +65,46 @@
     
     switch (sender.tag) {
             
-        case 1:
+        case 0:
             [self  initConsoliMediation];
             break;
-            
-        case 2:
+        case 1:
             [self  showInterstitialAds];
             break;
-            
-        case 3:
-            
+        case 2:
             [self  loadRewardedAds];
             break;
-            
-        case 4:
-            
+        case 3:
             [self  showRewardedAds];
             break;
-            
-        case 5:
-            
+        case 4:
             [self  showBannerAd];
             break;
-            
-        case 6:
-            
+        case 5:
             [self  hideBannerAd];
             break;
-            
-        case 7:
-            [self showAdmobNativeAd];
+        case 6:
+            [self  showMultiIconAds:sender];
             break;
-            
-        case 8:
-            
-            [self  showFacebookNativeAd];
+        case 7:
+            [self  hideIconAd];
             break;
         case 9:
-            
-            [self  hideNativeAd];
             break;
-            
         case 10:
-            
             [self  userConsentState];
             break;
             
         case 11:
             
-            [self  showIconAd];
             break;
             
         case 12:
             
-            [self  showMultiIconAds:sender];
-            break;
-            
-        case 13:
-            
-            [self  hideIconAd];
             break;
             
         case 14:
             
-            [self  showConsoliAdsNativeAd];
             break;
             
         default:
@@ -161,7 +148,7 @@
     }
 }
 
-- (void)showInterstitialAds  {
+- (void)showInterstitialAds {
     
     int sceneIndex = [indexField.text intValue];
     [[ConsoliAdsMediation sharedInstance]showInterstitial:sceneIndex viewController:self];
@@ -184,50 +171,13 @@
     
     NSString *str = indexField.text;
     int sceneIndex = [str intValue];
-    [[ConsoliAdsMediation sharedInstance]showBanner:sceneIndex viewController:self];
+    [[ConsoliAdsMediation sharedInstance] showBanner:sceneIndex viewController:self view:_bannerAdPlaceHolderView];
 }
 
 - (void)hideBannerAd {
     
     [[ConsoliAdsMediation sharedInstance] hideBanner];
 }
-
--(void) showAdmobNativeAd {
-    
-    int sceneIndex = [indexField.text intValue];
-    [[ConsoliAdsMediation sharedInstance] configureAdmobNativeAd:sceneIndex nativeAdPlaceholder:nativeAdPlaceholder viewController:self];
-    [[ConsoliAdsMediation sharedInstance] ShowNativeAd:sceneIndex viewController:self];
-}
-
-- (void)showConsoliAdsNativeAd  {
-    
-    int sceneIndex = [indexField.text intValue];
-    [[ConsoliAdsMediation sharedInstance] configureConsoliAdsNativeAd:sceneIndex nativeAdPlaceholder:nativeAdPlaceholder];
-    [[ConsoliAdsMediation sharedInstance]ShowNativeAd:sceneIndex viewController:self];
-}
-
--(void) showFacebookNativeAd  {
-    
-    int index = [indexField.text intValue];
-    
-//    [[ConsoliAdsMediation sharedInstance] configureFacebookNativeAd:index adSocialContextLabel:_adSocialContextLabel adBodyLabel:_adBodyLabel adTitleLabel:_adTitleLabel sponsoredLabel:_sponsoredLabel adUIView:_adUIView adActionButton:_adCallToActionButton viewController:self adIconView:_adIconView adCoverMediaView:_adCoverMediaView adChoicesView:_adChoicesView];
-    
-//    [[ConsoliAdsMediation sharedInstance] ShowNativeAd:index viewController:self];
-}
-
--(void) hideNativeAd  {
-    
-    int sceneIndex = [indexField.text intValue];
-    [[ConsoliAdsMediation sharedInstance] onDestroyForNativeAd:sceneIndex];
-}
-
-- (void)showIconAd  {
-    
-    int sceneIndex = [indexField.text intValue];
-    [[ConsoliAdsMediation sharedInstance] configureConsoliAdsIconAd:sceneIndex iconAdPlaceholder:self.iconView];
-    [[ConsoliAdsMediation sharedInstance] showIcon:sceneIndex viewController:self];
-}
-
 
 - (void)showMultiIconAds:(UIButton *)sender  {
     
@@ -249,7 +199,7 @@
     }
     
     if (iconBase != nil) {
-        [self.iconView addSubview:view];
+        [self.iconAdViewController addSubview:view];
         [iconAdViewArray addObject:view];
     }
 }
@@ -261,6 +211,100 @@
     [iconAdViewArray removeLastObject];
 }
 
+- (void)onConsoliAdsInitializationSuccess:(BOOL)status {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onInterstitialAdShown {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+- (void)onInterstitialAdClicked {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+- (void)onInterstitialAdClosed {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+- (void)onInterstitialAdFailedToShow {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onVideoAdShown {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onVideoAdFailedToShow {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onVideoAdClicked {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onVideoAdClosed {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onRewardedVideoAdLoaded {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onRewardedVideoAdFailToLoad {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onRewardedVideoAdShown {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onRewardedVideoAdCompleted {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onRewardedVideoAdClicked {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onRewardedVideoAdFailToShow {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onRewardedVideoAdClosed {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onIconAdShown {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onIconAdFailedToShow {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onIconAdClosed {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onIconAdClicked {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onBannerAdShown {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onBannerAdFailToShow {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onBannerAdClosed {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onBannerAdClicked {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(nullable id)sender NS_AVAILABLE_IOS(5_0) {
     
@@ -269,6 +313,52 @@
 
 }
 
+- (IBAction)showNativeAd:(id)sender {
+    int index = [indexField.text intValue];
+    [[ConsoliAdsMediation sharedInstance] loadNativeAdInViewController:self sceneIndex:index delegate:self];
+}
+
+- (void)onNativeAdLoaded:(CAMediatedNativeAd *)nativeAd {
+    [nativeAd registerViewForInteractionWithNativeAdView:self.nativeAdView];
+}
+
+- (void)onNativeAdLoadFailed {
+    
+}
+
+
+@end
+
+@interface ViewController (NativeAdMediation) <CANativeAdRequestDelegate>
+
+@end
+
+@implementation ViewController (NativeAdMediation)
+
+- (IBAction)showNativeAd:(id)sender {
+    int index = [indexField.text intValue];
+    [[ConsoliAdsMediation sharedInstance] loadNativeAdInViewController:self sceneIndex:index delegate:self];
+}
+
+- (void)onNativeAdLoaded:(CAMediatedNativeAd *)nativeAd {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+    [nativeAd registerViewForInteractionWithNativeAdView:self.nativeAdView];
+}
+
+- (void)onNativeAdClicked {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onNativeAdShown {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onNativeAdFailToShow {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+- (void)onNativeAdClosed {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
 
 @end
 

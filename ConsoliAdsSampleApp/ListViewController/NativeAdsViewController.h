@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NativeAdsViewController : UIViewController {
     
-    // MARK: - Properties
     int selectedSceneIndex;
     int selectedListIndex;
 }
@@ -20,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , weak) IBOutlet UITableView* tableView;
 @property (nonatomic , weak) IBOutlet UITextField* listViewTextField;
 @property (nonatomic , weak) IBOutlet UITextField* sceneIndexTextField;
-- (IBAction)unwindToViewControllerViewController:(UIStoryboardSegue *)segue;
+
 
 @end
 
