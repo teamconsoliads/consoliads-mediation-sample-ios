@@ -17,7 +17,7 @@
 #import "AppDelegate.h"
 #import "Config.h"
 
-@interface ViewController () <ConsoliAdsMediationDelegate, ConsoliAdsMediationRewardedAdDelegate, ConsoliAdsMediationInterstitialAdDelegate, ConsoliAdsMediationBannerAdDelegate, ConsoliAdsMediationIconAdDelegate, CANativeAdRequestDelegate> {
+@interface ViewController () <ConsoliAdsMediationDelegate, ConsoliAdsMediationRewardedAdDelegate, ConsoliAdsMediationInterstitialAdDelegate, ConsoliAdsMediationIconAdDelegate, CANativeAdRequestDelegate,CAMediatedBannerAdViewDelegate> {
     BOOL userConsent;
     int iconAdXAxis;
     int iconAdYAxis;
@@ -27,6 +27,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet MediationNativeAdView *nativeAdView;
+@property(nonatomic, strong) CAMediatedBannerView *bannerView;
 
 @end
 
@@ -47,7 +48,7 @@
     //    [[ConsoliAdsMediation sharedInstance] setRewardedAdDelegate:self];
     //    [[ConsoliAdsMediation sharedInstance] setInterstitialAdDelegate:self];
     //    [[ConsoliAdsMediation sharedInstance] setBannerAdDelegate:self];
-    [[ConsoliAdsMediation sharedInstance] setIconAdDelegate:self];
+    //    [[ConsoliAdsMediation sharedInstance] setIconAdDelegate:self];
 
 }
 
@@ -126,7 +127,7 @@
      Param 2: viewControler -  It's an optional parameter. If developer doesn't provide value then it's default value will be "nil". Banner will not be displayed, if developer calls show banner and ConsoliMediation mediation being initialized meanwhile.
      */
     
-    [[ConsoliAdsMediation sharedInstance] initializeWithUserConsent:userConsent viewController:self];
+    [[ConsoliAdsMediation sharedInstance] initializeWithUserConsent:userConsent isCCpa:true viewController:self];
 }
 
 -(void) userConsentState {
@@ -169,22 +170,24 @@
 
 - (void)showBannerAd {
     
+    [self hideBannerAd];
     NSString *str = indexField.text;
     int sceneIndex = [str intValue];
-    [[ConsoliAdsMediation sharedInstance] showBanner:sceneIndex viewController:self view:_bannerAdPlaceHolderView];
+    self.bannerView = [[CAMediatedBannerView alloc] initBannerWithSize:CABannerSizeStandard];
+    self.bannerView.delegate  = self;
+    [[ConsoliAdsMediation sharedInstance] showBannerWithIndex:sceneIndex bannerView:self.bannerView viewController:self];
 }
 
 - (void)hideBannerAd {
-    
-    [[ConsoliAdsMediation sharedInstance] hideBanner];
+    [[ConsoliAdsMediation sharedInstance] destroyBannerView:self.bannerView];
 }
 
 - (void)showMultiIconAds:(UIButton *)sender  {
     
     int sceneIndex = [indexField.text intValue];
     
-    IconAdBase *iconBase = (IconAdBase*)[[ConsoliAdsMediation sharedInstance] getIconAd:sceneIndex];
-    IconAdView *view = [[IconAdView alloc] initWithAd:iconBase];
+    IconAdBase *iconBase = (IconAdBase*)[[ConsoliAdsMediation sharedInstance] loadIconAd:sceneIndex viewController:self delegate:self];
+    IconAdView *view = [[IconAdView alloc] initWithAd:iconBase animationType:KCAAdNoIconAnimation];
     
     if (view != nil) {
         CGRect frame = view.frame;
@@ -288,23 +291,90 @@
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-- (void)onBannerAdShown {
+- (void)onBannerAdLoaded:(CAMediatedBannerView *)bannerView {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+     [bannerView removeFromSuperview];
+    [self.view addSubview:bannerView];
+    [self setBannerViewPosition:bannerView];
 }
 
-- (void)onBannerAdFailToShow {
-    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
-}
-
-- (void)onBannerAdClosed {
-    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
-}
 
 - (void)onBannerAdClicked {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
+- (void)onBannerAdLoadFailed {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
 
+- (void)onBannerAdRefreshEvent {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+
+#pragma positionBannerView
+
+- (void)setBannerViewPosition:(UIView*)bannerView {
+    
+    bannerView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self setWidthHeight:bannerView];
+    if (@available(ios 11.0, *)) {
+        [self positionBannerViewToSafeArea:bannerView];
+    }
+    else {
+        [self positionBannerView:bannerView];
+    }
+}
+
+- (void)positionBannerViewToSafeArea:(UIView*)bannerView NS_AVAILABLE_IOS(11.0) {
+    
+    [NSLayoutConstraint activateConstraints:@[
+    [bannerView.leadingAnchor constraintEqualToAnchor:self.bannerAdPlaceHolderView.leadingAnchor],
+    [bannerView.centerYAnchor constraintEqualToAnchor:self.bannerAdPlaceHolderView.centerYAnchor]
+    ]];
+}
+
+- (void)positionBannerView:(UIView *)bannerView {
+    
+    [self.view addConstraints:@[
+                           [NSLayoutConstraint constraintWithItem:bannerView
+                                                        attribute:NSLayoutAttributeCenterX
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.bannerAdPlaceHolderView
+                                                        attribute:NSLayoutAttributeCenterX
+                                                       multiplier:1
+                                                         constant:0],
+                           [NSLayoutConstraint constraintWithItem:bannerView
+                                                        attribute:NSLayoutAttributeCenterY
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.bannerAdPlaceHolderView
+                                                        attribute:NSLayoutAttributeCenterY
+                                                       multiplier:1
+                                                         constant:0]
+                           ]];
+    
+}
+
+- (void)setWidthHeight:(UIView*)bannerView {
+    
+    [bannerView addConstraint:[NSLayoutConstraint constraintWithItem:bannerView
+                                                           attribute:NSLayoutAttributeWidth
+                                                           relatedBy:NSLayoutRelationEqual
+                                                              toItem:nil
+                                                           attribute: NSLayoutAttributeNotAnAttribute
+                                                          multiplier:1
+                                                            constant:self.bannerAdPlaceHolderView.frame.size.width]];
+    
+    // Height constraint
+    [bannerView addConstraint:[NSLayoutConstraint constraintWithItem:bannerView
+                                                           attribute:NSLayoutAttributeHeight
+                                                           relatedBy:NSLayoutRelationEqual
+                                                              toItem:nil
+                                                           attribute: NSLayoutAttributeNotAnAttribute
+                                                          multiplier:1
+                                                            constant:self.bannerAdPlaceHolderView.frame.size.height]];
+    
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(nullable id)sender NS_AVAILABLE_IOS(5_0) {
     
@@ -361,4 +431,3 @@
 }
 
 @end
-
