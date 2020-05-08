@@ -28,6 +28,7 @@
 - (IBAction)showBanner:(UIButton*)sender {
     
     [self.view endEditing:YES];
+    [[ConsoliAdsMediation sharedInstance] destroyBannerView:bannerView];
     bannerView = [[CAMediatedBannerView alloc] init];
     [bannerView setCustomBannerSize:CGSizeMake(self.widthTextField.text.integerValue, self.heightTextField.text.integerValue)];
     bannerView.delegate = self;
@@ -48,6 +49,7 @@
 - (void)setBannerViewPosition:(UIView*)bannerView {
     
     bannerView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self setWidthHeight:bannerView];
     if (@available(ios 11.0, *)) {
         [self positionBannerViewToSafeArea:bannerView];
     }
@@ -58,8 +60,12 @@
 
 - (void)positionBannerViewToSafeArea:(UIView*)bannerView NS_AVAILABLE_IOS(11.0) {
     
-    [bannerView.centerYAnchor constraintEqualToAnchor:self.view.layoutMarginsGuide.centerYAnchor].active = YES;
-    [bannerView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
+    UILayoutGuide *guide = self.view.safeAreaLayoutGuide;
+    
+    [NSLayoutConstraint activateConstraints:@[
+        [bannerView.bottomAnchor constraintEqualToAnchor:guide.bottomAnchor],
+        [bannerView.centerXAnchor constraintEqualToAnchor:guide.centerXAnchor]
+    ]];
 }
 
 - (void)positionBannerView:(UIView *)bannerView {
@@ -83,15 +89,25 @@
     
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setWidthHeight:(UIView*)bannerView {
+    
+    [bannerView addConstraint:[NSLayoutConstraint constraintWithItem:bannerView
+                                                           attribute:NSLayoutAttributeWidth
+                                                           relatedBy:NSLayoutRelationEqual
+                                                              toItem:nil
+                                                           attribute: NSLayoutAttributeNotAnAttribute
+                                                          multiplier:1
+                                                            constant:bannerView.frame.size.width]];
+    
+    // Height constraint
+    [bannerView addConstraint:[NSLayoutConstraint constraintWithItem:bannerView
+                                                           attribute:NSLayoutAttributeHeight
+                                                           relatedBy:NSLayoutRelationEqual
+                                                              toItem:nil
+                                                           attribute: NSLayoutAttributeNotAnAttribute
+                                                          multiplier:1
+                                                            constant:bannerView.frame.size.height]];
+    
 }
-*/
 
 @end
