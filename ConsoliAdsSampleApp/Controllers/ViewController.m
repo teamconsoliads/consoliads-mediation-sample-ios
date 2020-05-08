@@ -41,6 +41,7 @@
     myTag = @"!--QA-Testing-Listner--!";
     userConsent = true;
     iconAdViewArray = [NSMutableArray new];
+    indexField.text = [NSString stringWithFormat:@"%d",[AppDelegate sharedInstance].configuration.sceneIndex];
 
     [ConsoliAdsMediation sharedInstance].productName = [AppDelegate sharedInstance].configuration.productName;
     [ConsoliAdsMediation sharedInstance].bundleIdentifier = [AppDelegate sharedInstance].configuration.bundleIdentifier;
@@ -173,7 +174,7 @@
     [self hideBannerAd];
     NSString *str = indexField.text;
     int sceneIndex = [str intValue];
-    self.bannerView = [[CAMediatedBannerView alloc] initBannerWithSize:CABannerSizeStandard];
+    self.bannerView = [[CAMediatedBannerView alloc] init];
     self.bannerView.delegate  = self;
     [[ConsoliAdsMediation sharedInstance] showBannerWithIndex:sceneIndex bannerView:self.bannerView viewController:self];
 }
@@ -311,6 +312,31 @@
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
+-(void)didCloseIconAd{
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+-(void)didClickIconAd{
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+-(void)didDisplayIconAd{
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+-(void)didRefreshIconAd {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+-(void)didLoadIconAd {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+-(void)didFailedToLoadIconAd {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+
 
 #pragma positionBannerView
 
@@ -375,6 +401,9 @@
                                                             constant:self.bannerAdPlaceHolderView.frame.size.height]];
     
 }
+
+#pragma mark
+#pragma mark Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(nullable id)sender NS_AVAILABLE_IOS(5_0) {
     

@@ -12,9 +12,9 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        _productName = @"ios";
-        _bundleIdentifier = @"com.consoliads.unity_plugin_5.1.3";
-        _sceneIndex = 0; // Don't change it, change it from UI
+        _productName = @"iOS Native App";
+        _bundleIdentifier = @"com.probook.Native";
+        _sceneIndex = 1; // Don't change it, change it from UI
     }
     return self;
 }
