@@ -35,7 +35,6 @@
 
 - (void)onBannerAdLoaded:(CAMediatedBannerView *)bannerView {
     
-    [bannerView setBackgroundColor:UIColor.redColor];
     NSLog(@"%s", __PRETTY_FUNCTION__);
     [bannerView removeFromSuperview];
     [self.view addSubview:bannerView];
