@@ -37,7 +37,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    indexField.text = @"0";
     myTag = @"!--QA-Testing-Listner--!";
     userConsent = true;
     iconAdViewArray = [NSMutableArray new];
@@ -210,8 +209,9 @@
 
 - (void)hideIconAd  {
     
-    UIView *view = [iconAdViewArray lastObject];
-    [view removeFromSuperview];
+    IconAdView *iconView = [iconAdViewArray lastObject];
+    [iconView removeFromSuperview];
+    [iconView destroyIconAd];
     [iconAdViewArray removeLastObject];
 }
 
