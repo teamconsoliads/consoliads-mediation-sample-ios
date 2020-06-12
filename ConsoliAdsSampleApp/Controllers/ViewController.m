@@ -127,7 +127,7 @@
      Param 2: viewControler -  It's an optional parameter. If developer doesn't provide value then it's default value will be "nil". Banner will not be displayed, if developer calls show banner and ConsoliMediation mediation being initialized meanwhile.
      */
     
-    [[ConsoliAdsMediation sharedInstance] initializeWithUserConsent:userConsent isCCpa:true viewController:self];
+    [[ConsoliAdsMediation sharedInstance] initializeWithUserConsent:userConsent viewController:self];
 }
 
 -(void) userConsentState {
