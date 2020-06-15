@@ -126,8 +126,9 @@
      Param 1: userConsent - It's an optional parameter. If developer doesn't provide value then it's default value will be used which is "true" a Boolean value.
      Param 2: viewControler -  It's an optional parameter. If developer doesn't provide value then it's default value will be "nil". Banner will not be displayed, if developer calls show banner and ConsoliMediation mediation being initialized meanwhile.
      */
-    
-    [[ConsoliAdsMediation sharedInstance] initializeWithUserConsent:userConsent viewController:self];
+    // MARK: set it value to YES to enable devmode
+    BOOL isDevMode = NO;
+    [[ConsoliAdsMediation sharedInstance] initialize:isDevMode boolUserConsent:userConsent viewController:self];
 }
 
 -(void) userConsentState {
