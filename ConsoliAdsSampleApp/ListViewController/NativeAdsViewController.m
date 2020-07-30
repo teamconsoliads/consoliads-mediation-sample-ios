@@ -161,4 +161,8 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)dealloc {
+    NSLog(@"%@, dealloc",NSStringFromSelector(_cmd));
+}
+
 @end

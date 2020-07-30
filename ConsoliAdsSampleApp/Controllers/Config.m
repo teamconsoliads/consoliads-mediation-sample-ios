@@ -13,7 +13,9 @@
 - (instancetype)init {
     if (self = [super init]) {
         _productName = @"iOS Native App";
-        _bundleIdentifier = @"com.probook.Native";
+        _bundleIdentifier = @"com.apple.TestFlight";
+        _iconAdAnimationType = KCAAdRotationIconAnimation;
+//        @"com.miniclip.flipmaster";
         _sceneIndex = 0; // Don't change it, change it from UI
     }
     return self;

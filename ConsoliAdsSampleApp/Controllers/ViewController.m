@@ -12,8 +12,7 @@
 #import "CANativeAdRequestDelegate.h"
 #import "CAMediatedNativeAd.h"
 #import <UIKit/UIKit.h>
-#import "IconAdBase.h"
-#import "IconAdView.h"
+#import "CAIconAdView.h"
 #import "AppDelegate.h"
 #import "Config.h"
 
@@ -23,7 +22,7 @@
     int iconAdYAxis;
     NSMutableArray *iconAdViewArray;
     NSString *myTag;
-
+    CAIconAdView *iconAdView;
 }
 
 @property (weak, nonatomic) IBOutlet MediationNativeAdView *nativeAdView;
@@ -41,15 +40,20 @@
     userConsent = true;
     iconAdViewArray = [NSMutableArray new];
     indexField.text = [NSString stringWithFormat:@"%d",[AppDelegate sharedInstance].configuration.sceneIndex];
-
+    
     [ConsoliAdsMediation sharedInstance].productName = [AppDelegate sharedInstance].configuration.productName;
     [ConsoliAdsMediation sharedInstance].bundleIdentifier = [AppDelegate sharedInstance].configuration.bundleIdentifier;
     [[ConsoliAdsMediation sharedInstance] setDelegate:self];
-    //    [[ConsoliAdsMediation sharedInstance] setRewardedAdDelegate:self];
+    [[ConsoliAdsMediation sharedInstance] setRewardedAdDelegate:self];
     //    [[ConsoliAdsMediation sharedInstance] setInterstitialAdDelegate:self];
     //    [[ConsoliAdsMediation sharedInstance] setBannerAdDelegate:self];
     //    [[ConsoliAdsMediation sharedInstance] setIconAdDelegate:self];
-
+    
+    iconAdView = [[CAIconAdView alloc] initWithFrame:CGRectMake(40, 180, 100, 100)];
+    iconAdView.rootViewController = self;
+    [iconAdView setAnimationType:[AppDelegate sharedInstance].configuration.iconAdAnimationType animationDuration:NO];
+    [self.view addSubview:iconAdView];
+    [self.view bringSubviewToFront:iconAdView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -85,10 +89,10 @@
             [self  hideBannerAd];
             break;
         case 6:
-            [self  showMultiIconAds:sender];
+            [self  showSingleIconAds:sender];
             break;
         case 7:
-            [self  hideIconAd];
+            [self  hideSingleIconAd];
             break;
         case 9:
             break;
@@ -97,10 +101,13 @@
             break;
             
         case 11:
-            
+            // show multiple icon ads
+            [self showMultiIconAds:sender];
             break;
             
         case 12:
+            // hide multiple icon ads
+            [self hideMultipleIconAd];
             
             break;
             
@@ -183,36 +190,61 @@
     [[ConsoliAdsMediation sharedInstance] destroyBannerView:self.bannerView];
 }
 
+- (void)showSingleIconAds:(UIButton *)sender {
+    
+    int sceneIndex = [indexField.text intValue];
+    
+    if (iconAdView == nil) {
+        iconAdView = [[CAIconAdView alloc] initWithFrame:CGRectMake(40, 180, 100, 100)];
+        iconAdView.rootViewController = self;
+        [iconAdView setAnimationType:[AppDelegate sharedInstance].configuration.iconAdAnimationType animationDuration:NO];
+        [self.view addSubview:iconAdView];
+    }
+    [[ConsoliAdsMediation sharedInstance] showIconAd:sceneIndex iconAdView:iconAdView delegate:self];
+}
+
+- (void)hideSingleIconAd {
+    
+    [iconAdView destroy];
+    iconAdView = nil;
+}
+
+
 - (void)showMultiIconAds:(UIButton *)sender  {
     
     int sceneIndex = [indexField.text intValue];
     
-    IconAdBase *iconBase = (IconAdBase*)[[ConsoliAdsMediation sharedInstance] loadIconAd:sceneIndex viewController:self delegate:self];
-    IconAdView *view = [[IconAdView alloc] initWithAd:iconBase animationType:KCAAdNoIconAnimation];
+    CAIconAdView *newIconAdView = [[CAIconAdView alloc] init];
+    newIconAdView.rootViewController = self;
+    [newIconAdView setAnimationType:[AppDelegate sharedInstance].configuration.iconAdAnimationType animationDuration:NO];
     
-    if (view != nil) {
-        CGRect frame = view.frame;
+    if (newIconAdView != nil) {
+        CGRect frame = newIconAdView.frame;
         frame.origin.x = iconAdXAxis;
         frame.origin.y = iconAdYAxis;
-        view.frame = frame;
-        iconAdXAxis += 70;
+        newIconAdView.frame = frame;
+        iconAdXAxis += 110;
         if (iconAdXAxis >= sender.superview.bounds.size.width) {
-            iconAdYAxis += 70;
+            iconAdYAxis += 110;
             iconAdXAxis = 0;
         }
     }
     
-    if (iconBase != nil) {
-        [self.iconAdViewController addSubview:view];
-        [iconAdViewArray addObject:view];
+    
+    if (newIconAdView != nil) {
+        [self.iconAdViewController addSubview:newIconAdView];
+        [iconAdViewArray addObject:newIconAdView];
     }
+    
+    [[ConsoliAdsMediation sharedInstance] showIconAd:sceneIndex iconAdView:newIconAdView delegate:self];
+    
 }
 
-- (void)hideIconAd  {
+- (void)hideMultipleIconAd  {
     
-    IconAdView *iconView = [iconAdViewArray lastObject];
+    CAIconAdView *iconView = [iconAdViewArray lastObject];
     [iconView removeFromSuperview];
-    [iconView destroyIconAd];
+    [iconView destroy];
     [iconAdViewArray removeLastObject];
 }
 
@@ -277,25 +309,11 @@
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-- (void)onIconAdShown {
-    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
-}
 
-- (void)onIconAdFailedToShow {
-    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
-}
-
-- (void)onIconAdClosed {
-    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
-}
-
-- (void)onIconAdClicked {
-    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
-}
 
 - (void)onBannerAdLoaded:(CAMediatedBannerView *)bannerView {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
-     [bannerView removeFromSuperview];
+    [bannerView removeFromSuperview];
     [self.view addSubview:bannerView];
     [self setBannerViewPosition:bannerView];
 }
@@ -313,28 +331,26 @@
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
--(void)didCloseIconAd{
+
+-(void)onIconAdShownEvent {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
--(void)didClickIconAd{
+-(void) onIconAdFailedToShownEvent {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+    
 }
-
--(void)didDisplayIconAd{
+-(void) onIconAdRefreshEvent {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+    
 }
-
--(void)didRefreshIconAd {
+-(void) onIconAdClosedEvent {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+    
 }
-
--(void)didLoadIconAd {
+-(void) onIconAdClickEvent {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
-}
-
--(void)didFailedToLoadIconAd {
-    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+    
 }
 
 
@@ -356,29 +372,29 @@
 - (void)positionBannerViewToSafeArea:(UIView*)bannerView NS_AVAILABLE_IOS(11.0) {
     
     [NSLayoutConstraint activateConstraints:@[
-    [bannerView.leadingAnchor constraintEqualToAnchor:self.bannerAdPlaceHolderView.leadingAnchor],
-    [bannerView.centerYAnchor constraintEqualToAnchor:self.bannerAdPlaceHolderView.centerYAnchor]
+        [bannerView.leadingAnchor constraintEqualToAnchor:self.bannerAdPlaceHolderView.leadingAnchor],
+        [bannerView.centerYAnchor constraintEqualToAnchor:self.bannerAdPlaceHolderView.centerYAnchor]
     ]];
 }
 
 - (void)positionBannerView:(UIView *)bannerView {
     
     [self.view addConstraints:@[
-                           [NSLayoutConstraint constraintWithItem:bannerView
-                                                        attribute:NSLayoutAttributeCenterX
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self.bannerAdPlaceHolderView
-                                                        attribute:NSLayoutAttributeCenterX
-                                                       multiplier:1
-                                                         constant:0],
-                           [NSLayoutConstraint constraintWithItem:bannerView
-                                                        attribute:NSLayoutAttributeCenterY
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self.bannerAdPlaceHolderView
-                                                        attribute:NSLayoutAttributeCenterY
-                                                       multiplier:1
-                                                         constant:0]
-                           ]];
+        [NSLayoutConstraint constraintWithItem:bannerView
+                                     attribute:NSLayoutAttributeCenterX
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:self.bannerAdPlaceHolderView
+                                     attribute:NSLayoutAttributeCenterX
+                                    multiplier:1
+                                      constant:0],
+        [NSLayoutConstraint constraintWithItem:bannerView
+                                     attribute:NSLayoutAttributeCenterY
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:self.bannerAdPlaceHolderView
+                                     attribute:NSLayoutAttributeCenterY
+                                    multiplier:1
+                                      constant:0]
+    ]];
     
 }
 
@@ -410,7 +426,7 @@
     
     int sceneIndex = [indexField.text intValue];
     [AppDelegate sharedInstance].configuration.sceneIndex = sceneIndex;
-
+    
 }
 
 - (IBAction)showNativeAd:(id)sender {

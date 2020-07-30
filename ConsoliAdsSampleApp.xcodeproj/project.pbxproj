@@ -11,7 +11,7 @@
 		1D2D932D22AE355F00FB5977 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2D932C22AE355F00FB5977 /* Config.m */; };
 		1D33BFCB217DA81D0013DDF9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D33BFCA217DA81D0013DDF9 /* AppDelegate.m */; };
 		1D33BFCE217DA81D0013DDF9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D33BFCD217DA81D0013DDF9 /* ViewController.m */; };
-		1D33BFD1217DA81D0013DDF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D33BFCF217DA81D0013DDF9 /* Main.storyboard */; };
+		1D33BFD1217DA81D0013DDF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D33BFCF217DA81D0013DDF9 /* Main.storyboard */; settings = {ASSET_TAGS = (11, ); }; };
 		1D33BFD3217DA8200013DDF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D33BFD2217DA8200013DDF9 /* Assets.xcassets */; };
 		1D33BFD6217DA8200013DDF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D33BFD4217DA8200013DDF9 /* LaunchScreen.storyboard */; };
 		1D33BFD9217DA8200013DDF9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D33BFD8217DA8200013DDF9 /* main.m */; };
@@ -26,6 +26,9 @@
 		3AD70C3521CBB6F400AA99DD /* uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD70C3121CBB6F400AA99DD /* uncheck.png */; };
 		3AD70C3621CBB6F400AA99DD /* Background-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD70C3221CBB6F400AA99DD /* Background-04.png */; };
 		3AD70C3721CBB6F400AA99DD /* Consoli Ads Logo for web (for dark backgrounds).png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD70C3321CBB6F400AA99DD /* Consoli Ads Logo for web (for dark backgrounds).png */; };
+		8407BFA824B70AFF00B1F068 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407BFA724B70AFF00B1F068 /* VideoToolbox.framework */; };
+		8407BFAA24B70B8600B1F068 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407BFA924B70B8600B1F068 /* CoreMotion.framework */; };
+		8450C26224CC14FC001F5FF6 /* MenuItem_IconAd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8450C26124CC14FB001F5FF6 /* MenuItem_IconAd.xib */; };
 		849667702460327400E44C81 /* BannerAdsDemoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496676D2460327400E44C81 /* BannerAdsDemoListViewController.m */; };
 		849667712460327400E44C81 /* BannerAd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8496676F2460327400E44C81 /* BannerAd.xib */; };
 		849667752460375600E44C81 /* ProgramaticallyBannerAdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849667742460375600E44C81 /* ProgramaticallyBannerAdVC.m */; };
@@ -35,6 +38,9 @@
 		BA7BE8B52371C8C400BD9A3C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BA7BE8B22371C8C400BD9A3C /* libc++.tbd */; };
 		BA7BE8B62371C8C400BD9A3C /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BA7BE8B32371C8C400BD9A3C /* libc++abi.tbd */; };
 		BA7BE8B72371C8C400BD9A3C /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BA7BE8B42371C8C400BD9A3C /* libc++.1.tbd */; };
+		F281C7D524CC038300BD88A0 /* IconAd.xib in Resources */ = {isa = PBXBuildFile; fileRef = F281C7D224CC038300BD88A0 /* IconAd.xib */; };
+		F281C7D624CC038300BD88A0 /* IconAdsDemoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F281C7D424CC038300BD88A0 /* IconAdsDemoListViewController.m */; };
+		F281C7D924CC04FF00BD88A0 /* MenuItemIconAd.m in Sources */ = {isa = PBXBuildFile; fileRef = F281C7D724CC04FF00BD88A0 /* MenuItemIconAd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,6 +84,10 @@
 		3AD70C3121CBB6F400AA99DD /* uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheck.png; sourceTree = "<group>"; };
 		3AD70C3221CBB6F400AA99DD /* Background-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-04.png"; sourceTree = "<group>"; };
 		3AD70C3321CBB6F400AA99DD /* Consoli Ads Logo for web (for dark backgrounds).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Consoli Ads Logo for web (for dark backgrounds).png"; sourceTree = "<group>"; };
+		8407BFA524B70AC900B1F068 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		8407BFA724B70AFF00B1F068 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		8407BFA924B70B8600B1F068 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		8450C26124CC14FB001F5FF6 /* MenuItem_IconAd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItem_IconAd.xib; sourceTree = "<group>"; };
 		8496676D2460327400E44C81 /* BannerAdsDemoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerAdsDemoListViewController.m; sourceTree = "<group>"; };
 		8496676E2460327400E44C81 /* BannerAdsDemoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerAdsDemoListViewController.h; sourceTree = "<group>"; };
 		8496676F2460327400E44C81 /* BannerAd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerAd.xib; sourceTree = "<group>"; };
@@ -92,6 +102,11 @@
 		BA7BE8B22371C8C400BD9A3C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		BA7BE8B32371C8C400BD9A3C /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
 		BA7BE8B42371C8C400BD9A3C /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		F281C7D224CC038300BD88A0 /* IconAd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IconAd.xib; sourceTree = "<group>"; };
+		F281C7D324CC038300BD88A0 /* IconAdsDemoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconAdsDemoListViewController.h; sourceTree = "<group>"; };
+		F281C7D424CC038300BD88A0 /* IconAdsDemoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconAdsDemoListViewController.m; sourceTree = "<group>"; };
+		F281C7D724CC04FF00BD88A0 /* MenuItemIconAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemIconAd.m; sourceTree = "<group>"; };
+		F281C7D824CC04FF00BD88A0 /* MenuItemIconAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemIconAd.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +114,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8407BFA824B70AFF00B1F068 /* VideoToolbox.framework in Frameworks */,
 				1D00DD832379358200A87679 /* libxml2.2.tbd in Frameworks */,
+				8407BFAA24B70B8600B1F068 /* CoreMotion.framework in Frameworks */,
 				BA7BE8B52371C8C400BD9A3C /* libc++.tbd in Frameworks */,
 				BA7BE8B62371C8C400BD9A3C /* libc++abi.tbd in Frameworks */,
 				BA7BE8B72371C8C400BD9A3C /* libc++.1.tbd in Frameworks */,
@@ -156,6 +173,7 @@
 		1D4FA90222689FE300D01B28 /* ListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F281C7D124CC038300BD88A0 /* IconListView  */,
 				8496676C2460327400E44C81 /* BannerListView */,
 				1D4FA90322689FE300D01B28 /* CellViews */,
 				1D4FA91422689FE300D01B28 /* NativeAdsViewController.h */,
@@ -167,9 +185,12 @@
 		1D4FA90322689FE300D01B28 /* CellViews */ = {
 			isa = PBXGroup;
 			children = (
+				F281C7D824CC04FF00BD88A0 /* MenuItemIconAd.h */,
+				F281C7D724CC04FF00BD88A0 /* MenuItemIconAd.m */,
 				1D4FA90822689FE300D01B28 /* menu_item_image-web.png */,
 				1D4FA90922689FE300D01B28 /* MenuItem.h */,
 				1D4FA90A22689FE300D01B28 /* MenuItem.m */,
+				8450C26124CC14FB001F5FF6 /* MenuItem_IconAd.xib */,
 				1D4FA90C22689FE300D01B28 /* MenuItem.xib */,
 				1D4FA90D22689FE300D01B28 /* menuItemsJSON.json */,
 				1D4FA90E22689FE300D01B28 /* MenuItemViewCell.h */,
@@ -228,12 +249,25 @@
 		BA7BE8B12371C8C400BD9A3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8407BFA924B70B8600B1F068 /* CoreMotion.framework */,
+				8407BFA724B70AFF00B1F068 /* VideoToolbox.framework */,
+				8407BFA524B70AC900B1F068 /* Accelerate.framework */,
 				1D00DD822379358200A87679 /* libxml2.2.tbd */,
 				BA7BE8B42371C8C400BD9A3C /* libc++.1.tbd */,
 				BA7BE8B22371C8C400BD9A3C /* libc++.tbd */,
 				BA7BE8B32371C8C400BD9A3C /* libc++abi.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F281C7D124CC038300BD88A0 /* IconListView  */ = {
+			isa = PBXGroup;
+			children = (
+				F281C7D224CC038300BD88A0 /* IconAd.xib */,
+				F281C7D324CC038300BD88A0 /* IconAdsDemoListViewController.h */,
+				F281C7D424CC038300BD88A0 /* IconAdsDemoListViewController.m */,
+			);
+			path = "IconListView ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +297,9 @@
 		1D33BFBE217DA81D0013DDF9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					11,
+				);
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = ConsoliAds;
 				TargetAttributes = {
@@ -297,11 +334,13 @@
 				849667712460327400E44C81 /* BannerAd.xib in Resources */,
 				1D33BFD6217DA8200013DDF9 /* LaunchScreen.storyboard in Resources */,
 				3AD70C3421CBB6F400AA99DD /* check.png in Resources */,
+				F281C7D524CC038300BD88A0 /* IconAd.xib in Resources */,
 				1DA03F8C233D0DBB00BB2A97 /* NativeAdCellView.xib in Resources */,
 				1D4FA91C22689FE300D01B28 /* MenuItem.xib in Resources */,
 				1D33BFD3217DA8200013DDF9 /* Assets.xcassets in Resources */,
 				1D4FA91922689FE300D01B28 /* menu_item_image-web.png in Resources */,
 				3AD70C3721CBB6F400AA99DD /* Consoli Ads Logo for web (for dark backgrounds).png in Resources */,
+				8450C26224CC14FC001F5FF6 /* MenuItem_IconAd.xib in Resources */,
 				1D33BFD1217DA81D0013DDF9 /* Main.storyboard in Resources */,
 				3AD70C3521CBB6F400AA99DD /* uncheck.png in Resources */,
 				3AD70C3621CBB6F400AA99DD /* Background-04.png in Resources */,
@@ -327,6 +366,8 @@
 				1D33BFD9217DA8200013DDF9 /* main.m in Sources */,
 				1D4FA92322689FE300D01B28 /* NativeAdsViewController.m in Sources */,
 				1D4FA91A22689FE300D01B28 /* MenuItem.m in Sources */,
+				F281C7D624CC038300BD88A0 /* IconAdsDemoListViewController.m in Sources */,
+				F281C7D924CC04FF00BD88A0 /* MenuItemIconAd.m in Sources */,
 				1D33BFCB217DA81D0013DDF9 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,49 +510,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XNR652K8UD;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/FBAudienceNetwork_iOS_5.9.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Adcolony_iOS_4.1.4",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Applovin_iOS_6.12.6",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Inmobi_iOS_9.0.7",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Startapp_iOS_4.5.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Chartboost_iOS_8.1.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Ironsource_iOS_6.16.1.",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Vungle_iOS_6.5.3",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/UnityAds_iOS_3.4.2",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Admob_iOS_7.59.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/TapJoy_iOS_12.4.2/Tapjoy.embeddedframework",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/vungle654",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/ConsoliAdsSampleApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_9.1.1_sheeda",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/FBAudienceNetwork_iOS_5.9.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Adcolony_iOS_4.1.4",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Applovin_iOS_6.12.6",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Inmobi_iOS_9.0.7",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Startapp_iOS_4.5.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Chartboost_iOS_8.1.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Ironsource_iOS_6.16.1.",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Vungle_iOS_6.5.3",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/UnityAds_iOS_3.4.2",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Admob_iOS_7.59.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mopub_iOS_5.12.1",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/TapJoy_iOS_12.4.2",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/kidoz_iOS_v_1.3.5",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/vungle654",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.consoliads.sampleapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -528,21 +538,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XNR652K8UD;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/FBAudienceNetwork_iOS_5.9.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Adcolony_iOS_4.1.4",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Applovin_iOS_6.12.6",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Inmobi_iOS_9.0.7",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Startapp_iOS_4.5.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Chartboost_iOS_8.1.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Ironsource_iOS_6.16.1.",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Vungle_iOS_6.5.3",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/UnityAds_iOS_3.4.2",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Admob_iOS_7.59.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/TapJoy_iOS_12.4.2/Tapjoy.embeddedframework",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/vungle654",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/ConsoliAdsSampleApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -550,24 +546,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_9.1.1_sheeda",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/FBAudienceNetwork_iOS_5.9.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Adcolony_iOS_4.1.4",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Applovin_iOS_6.12.6",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Inmobi_iOS_9.0.7",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Startapp_iOS_4.5.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Chartboost_iOS_8.1.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Ironsource_iOS_6.16.1.",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Vungle_iOS_6.5.3",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/UnityAds_iOS_3.4.2",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Admob_iOS_7.59.0",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/Mopub_iOS_5.12.1",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/TapJoy_iOS_12.4.2",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/kidoz_iOS_v_1.3.5",
-					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks/vungle654",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.consoliads.sampleapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
