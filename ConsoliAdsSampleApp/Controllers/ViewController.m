@@ -315,6 +315,7 @@
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
     [bannerView removeFromSuperview];
     [self.view addSubview:bannerView];
+    
     [self setBannerViewPosition:bannerView];
 }
 
@@ -372,7 +373,7 @@
 - (void)positionBannerViewToSafeArea:(UIView*)bannerView NS_AVAILABLE_IOS(11.0) {
     
     [NSLayoutConstraint activateConstraints:@[
-        [bannerView.leadingAnchor constraintEqualToAnchor:self.bannerAdPlaceHolderView.leadingAnchor],
+        [bannerView.centerXAnchor constraintEqualToAnchor:self.bannerAdPlaceHolderView.centerXAnchor],
         [bannerView.centerYAnchor constraintEqualToAnchor:self.bannerAdPlaceHolderView.centerYAnchor]
     ]];
 }
@@ -406,7 +407,7 @@
                                                               toItem:nil
                                                            attribute: NSLayoutAttributeNotAnAttribute
                                                           multiplier:1
-                                                            constant:self.bannerAdPlaceHolderView.frame.size.width]];
+                                                            constant:self.bannerView.frame.size.width]];
     
     // Height constraint
     [bannerView addConstraint:[NSLayoutConstraint constraintWithItem:bannerView
@@ -415,7 +416,7 @@
                                                               toItem:nil
                                                            attribute: NSLayoutAttributeNotAnAttribute
                                                           multiplier:1
-                                                            constant:self.bannerAdPlaceHolderView.frame.size.height]];
+                                                            constant:self.bannerView.frame.size.height]];
     
 }
 
