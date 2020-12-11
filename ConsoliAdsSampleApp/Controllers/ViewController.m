@@ -15,14 +15,18 @@
 #import "CAIconAdView.h"
 #import "AppDelegate.h"
 #import "Config.h"
+#import "CAMediationConstants.h"
 
 @interface ViewController () <ConsoliAdsMediationDelegate, ConsoliAdsMediationRewardedAdDelegate, ConsoliAdsMediationInterstitialAdDelegate, ConsoliAdsMediationIconAdDelegate, CANativeAdRequestDelegate,CAMediatedBannerAdViewDelegate> {
     BOOL userConsent;
+    BOOL devMode;
     int iconAdXAxis;
     int iconAdYAxis;
     NSMutableArray *iconAdViewArray;
     NSString *myTag;
     CAIconAdView *iconAdView;
+    NSArray *nativePlaceHolders;
+    CGRect iconAdframe;
 }
 
 @property (weak, nonatomic) IBOutlet MediationNativeAdView *nativeAdView;
@@ -30,30 +34,56 @@
 
 @end
 
+@interface ViewController (NativeAdMediation) <CANativeAdRequestDelegate>
+
+- (void)showNativeAd;
+
+@end
+
 @implementation ViewController
 
-@synthesize indexField, nativeAdPlaceholder, checkStatus;
+@synthesize  nativeAdPlaceholder;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     myTag = @"!--QA-Testing-Listner--!";
     userConsent = true;
+    devMode = NO;
+    [self updateUserConsentUI];
+    [self updateDevModeUI];
+    iconAdframe = CGRectMake(250, 180.0 *([UIScreen mainScreen].bounds.size.height / 750.0), 100, 100);
     iconAdViewArray = [NSMutableArray new];
-    indexField.text = [NSString stringWithFormat:@"%d",[AppDelegate sharedInstance].configuration.sceneIndex];
     
-    [ConsoliAdsMediation sharedInstance].productName = [AppDelegate sharedInstance].configuration.productName;
-    [ConsoliAdsMediation sharedInstance].bundleIdentifier = [AppDelegate sharedInstance].configuration.bundleIdentifier;
+    self.pickerView.dataSource = self;
+    nativePlaceHolders = @[@"SmartoScene",
+                           @"Activity1",
+                           @"Activity2",
+                           @"Activity3",
+                           @"Activity4",
+                           @"Activity5",
+                           @"OptionA",
+                           @"OptionB",
+                           @"OptionC",
+                           @"Settings",
+                           @"About" ,
+                           @"Default"];
+    self.pickerView.hidden = YES;
+    [AppDelegate sharedInstance].configuration.selectedPlaceholder = Default;
+    [self.placeHolder setTitle:nativePlaceHolders[11] forState:UIControlStateNormal];
+    
     [[ConsoliAdsMediation sharedInstance] setDelegate:self];
     [[ConsoliAdsMediation sharedInstance] setRewardedAdDelegate:self];
-    //    [[ConsoliAdsMediation sharedInstance] setInterstitialAdDelegate:self];
-    //    [[ConsoliAdsMediation sharedInstance] setBannerAdDelegate:self];
-    //    [[ConsoliAdsMediation sharedInstance] setIconAdDelegate:self];
+    [[ConsoliAdsMediation sharedInstance] setInterstitialAdDelegate:self];
     
-    iconAdView = [[CAIconAdView alloc] initWithFrame:CGRectMake(40, 180, 100, 100)];
+    iconAdView = [[CAIconAdView alloc] initWithFrame:iconAdframe];
     iconAdView.rootViewController = self;
     [iconAdView setAnimationType:[AppDelegate sharedInstance].configuration.iconAdAnimationType animationDuration:NO];
     [self.view addSubview:iconAdView];
     [self.view bringSubviewToFront:iconAdView];
+    
+    self.bannerView = [[CAMediatedBannerView alloc] init];
+    self.bannerView.delegate  = self;
+    [self.pickerView selectRow:[nativePlaceHolders indexOfObject:@"Default"] inComponent:0 animated:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -94,10 +124,14 @@
         case 7:
             [self  hideSingleIconAd];
             break;
+        case 8:
+            [self  showNativeAd];
+            break;
         case 9:
             break;
         case 10:
-            [self  userConsentState];
+            userConsent = !userConsent;
+            [self  updateUserConsentUI];
             break;
             
         case 11:
@@ -112,9 +146,16 @@
             break;
             
         case 14:
-            
+            [self loadInterstitialAds];
             break;
             
+        case 15:
+            devMode = !devMode;
+            [self updateDevModeUI];
+            break;
+        case 16:
+            self.pickerView.hidden = NO;
+            break;
         default:
             break;
     }
@@ -133,74 +174,67 @@
      Param 1: userConsent - It's an optional parameter. If developer doesn't provide value then it's default value will be used which is "true" a Boolean value.
      Param 2: viewControler -  It's an optional parameter. If developer doesn't provide value then it's default value will be "nil". Banner will not be displayed, if developer calls show banner and ConsoliMediation mediation being initialized meanwhile.
      */
-    // MARK: set it value to YES to enable devmode
-    BOOL isDevMode = NO;
-    [[ConsoliAdsMediation sharedInstance] initialize:isDevMode boolUserConsent:userConsent viewController:self];
+    // MARK: set its value to YES to enable devmode
+    [[ConsoliAdsMediation sharedInstance] initialize:devMode boolUserConsent:userConsent viewController:self userSignature:@"123456778"];
 }
 
--(void) userConsentState {
+-(void)updateUserConsentUI {
     
-    checkStatus += 1;
-    if (checkStatus == 1) {
-        
+    if (!userConsent) {
         UIImage *btnImage = [UIImage imageNamed:@"uncheck.png"];
         [_userConsentOutlet setImage:btnImage forState: UIControlStateNormal];
-        userConsent = NO;
     }
-    
-    else if (checkStatus == 2) {
+    else {
         UIImage *btnImage = [UIImage imageNamed:@"check.png"];
-        
         [_userConsentOutlet setImage:btnImage forState: UIControlStateNormal];
-        userConsent = YES;
-        checkStatus = 0;
     }
+}
+
+-(void)updateDevModeUI {
+    
+    if (!devMode) {
+        UIImage *btnImage = [UIImage imageNamed:@"uncheck.png"];
+        [_devModeOutlet setImage:btnImage forState: UIControlStateNormal];
+    }
+    else {
+        UIImage *btnImage = [UIImage imageNamed:@"check.png"];
+        [_devModeOutlet setImage:btnImage forState: UIControlStateNormal];
+    }
+}
+
+-(void) loadInterstitialAds {
+    [[ConsoliAdsMediation sharedInstance] loadInterstitial];
 }
 
 - (void)showInterstitialAds {
-    
-    int sceneIndex = [indexField.text intValue];
-    [[ConsoliAdsMediation sharedInstance]showInterstitial:sceneIndex viewController:self];
+    [[ConsoliAdsMediation sharedInstance]showInterstitial:[AppDelegate sharedInstance].configuration.selectedPlaceholder viewController:self];
 }
 
 -(void) loadRewardedAds {
-    
-    int sceneIndex = [indexField.text intValue];
-    [[ConsoliAdsMediation sharedInstance] loadRewarded:sceneIndex];
+    [[ConsoliAdsMediation sharedInstance] loadRewarded];
 }
 
 -(void)showRewardedAds {
-    
-    NSString *str = indexField.text;
-    int sceneIndex = [str intValue];
-    [[ConsoliAdsMediation sharedInstance]showRewardedVideo:sceneIndex viewController:self];
+    [[ConsoliAdsMediation sharedInstance]showRewardedVideo:[AppDelegate sharedInstance].configuration.selectedPlaceholder viewController:self];
 }
 
 - (void)showBannerAd {
-    
-    [self hideBannerAd];
-    NSString *str = indexField.text;
-    int sceneIndex = [str intValue];
-    self.bannerView = [[CAMediatedBannerView alloc] init];
-    self.bannerView.delegate  = self;
-    [[ConsoliAdsMediation sharedInstance] showBannerWithIndex:sceneIndex bannerView:self.bannerView viewController:self];
+    [[ConsoliAdsMediation sharedInstance] showBanner:[AppDelegate sharedInstance].configuration.selectedPlaceholder bannerView:self.bannerView viewController:self];
 }
 
 - (void)hideBannerAd {
-    [[ConsoliAdsMediation sharedInstance] destroyBannerView:self.bannerView];
+    [self.bannerView destroyBanner];
 }
 
 - (void)showSingleIconAds:(UIButton *)sender {
     
-    int sceneIndex = [indexField.text intValue];
-    
     if (iconAdView == nil) {
-        iconAdView = [[CAIconAdView alloc] initWithFrame:CGRectMake(40, 180, 100, 100)];
+        iconAdView = [[CAIconAdView alloc] initWithFrame:iconAdframe];
         iconAdView.rootViewController = self;
         [iconAdView setAnimationType:[AppDelegate sharedInstance].configuration.iconAdAnimationType animationDuration:NO];
         [self.view addSubview:iconAdView];
     }
-    [[ConsoliAdsMediation sharedInstance] showIconAd:sceneIndex iconAdView:iconAdView delegate:self];
+    [[ConsoliAdsMediation sharedInstance] showIconAd:[AppDelegate sharedInstance].configuration.selectedPlaceholder iconAdView:iconAdView delegate:self];
 }
 
 - (void)hideSingleIconAd {
@@ -211,8 +245,6 @@
 
 
 - (void)showMultiIconAds:(UIButton *)sender  {
-    
-    int sceneIndex = [indexField.text intValue];
     
     CAIconAdView *newIconAdView = [[CAIconAdView alloc] init];
     newIconAdView.rootViewController = self;
@@ -236,7 +268,7 @@
         [iconAdViewArray addObject:newIconAdView];
     }
     
-    [[ConsoliAdsMediation sharedInstance] showIconAd:sceneIndex iconAdView:newIconAdView delegate:self];
+    [[ConsoliAdsMediation sharedInstance] showIconAd:[AppDelegate sharedInstance].configuration.selectedPlaceholder iconAdView:newIconAdView delegate:self];
     
 }
 
@@ -252,32 +284,29 @@
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-- (void)onInterstitialAdShown {
-    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
-}
 - (void)onInterstitialAdClicked {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 - (void)onInterstitialAdClosed {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
-- (void)onInterstitialAdFailedToShow {
+
+- (void)onInterstitialAdFailToLoad {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-- (void)onVideoAdShown {
+
+- (void)onInterstitialAdFailedToShow:(NativePlaceholderName)placeholderName {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-- (void)onVideoAdFailedToShow {
+
+- (void)onInterstitialAdLoaded {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-- (void)onVideoAdClicked {
-    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
-}
 
-- (void)onVideoAdClosed {
+- (void)onInterstitialAdShown:(NativePlaceholderName)placeholderName {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
@@ -309,8 +338,6 @@
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-
-
 - (void)onBannerAdLoaded:(CAMediatedBannerView *)bannerView {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
     [bannerView removeFromSuperview];
@@ -319,19 +346,17 @@
     [self setBannerViewPosition:bannerView];
 }
 
-
-- (void)onBannerAdClicked {
+- (void)onBannerAdLoadFailed:(CAMediatedBannerView*)bannerView {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-- (void)onBannerAdLoadFailed {
-    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+- (void)onBannerAdClicked {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
 - (void)onBannerAdRefreshEvent {
-    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+    NSLog(@"%s", __PRETTY_FUNCTION__);
 }
-
 
 -(void)onIconAdShownEvent {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
@@ -351,10 +376,7 @@
 }
 -(void) onIconAdClickEvent {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
-    
 }
-
-
 
 #pragma positionBannerView
 
@@ -424,42 +446,86 @@
 #pragma mark Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(nullable id)sender NS_AVAILABLE_IOS(5_0) {
+}
+
+- (IBAction)userConsentOutlet:(UIButton *)sender {
+}
+
+#pragma
+#pragma mark UIPickerView
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return nativePlaceHolders.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return nativePlaceHolders[row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     
-    int sceneIndex = [indexField.text intValue];
-    [AppDelegate sharedInstance].configuration.sceneIndex = sceneIndex;
+    self.pickerView.hidden = YES;
+    [self.placeHolder setTitle:nativePlaceHolders[row] forState:UIControlStateNormal];
     
+    switch (row) {
+        case 0:
+            [AppDelegate sharedInstance].configuration.selectedPlaceholder = SmartoScene;
+            break;
+        case 1:
+            [AppDelegate sharedInstance].configuration.selectedPlaceholder = Activity1;
+            break;
+        case 2:
+            [AppDelegate sharedInstance].configuration.selectedPlaceholder = Activity2;
+            break;
+        case 3:
+            [AppDelegate sharedInstance].configuration.selectedPlaceholder = Activity3;
+            break;
+        case 4:
+            [AppDelegate sharedInstance].configuration.selectedPlaceholder = Activity4;
+            break;
+        case 5:
+            [AppDelegate sharedInstance].configuration.selectedPlaceholder = Activity5;
+            break;
+        case 6:
+            [AppDelegate sharedInstance].configuration.selectedPlaceholder = OptionA;
+            break;
+        case 7:
+            [AppDelegate sharedInstance].configuration.selectedPlaceholder = OptionB;
+            break;
+        case 8:
+            [AppDelegate sharedInstance].configuration.selectedPlaceholder = OptionC;
+            break;
+        case 9:
+            [AppDelegate sharedInstance].configuration.selectedPlaceholder = Settings;
+            break;
+        case 10:
+            [AppDelegate sharedInstance].configuration.selectedPlaceholder = About;
+            break;
+        case 11:
+            [AppDelegate sharedInstance].configuration.selectedPlaceholder = Default;
+            break;
+    }
 }
-
-- (IBAction)showNativeAd:(id)sender {
-    int index = [indexField.text intValue];
-    [[ConsoliAdsMediation sharedInstance] loadNativeAdInViewController:self sceneIndex:index delegate:self];
-}
-
-- (void)onNativeAdLoaded:(CAMediatedNativeAd *)nativeAd {
-    [nativeAd registerViewForInteractionWithNativeAdView:self.nativeAdView];
-}
-
-- (void)onNativeAdLoadFailed {
-    
-}
-
-
-@end
-
-@interface ViewController (NativeAdMediation) <CANativeAdRequestDelegate>
 
 @end
 
 @implementation ViewController (NativeAdMediation)
 
-- (IBAction)showNativeAd:(id)sender {
-    int index = [indexField.text intValue];
-    [[ConsoliAdsMediation sharedInstance] loadNativeAdInViewController:self sceneIndex:index delegate:self];
+- (void)showNativeAd {
+    [[ConsoliAdsMediation sharedInstance] loadNativeAdInViewController:self placeholder:[AppDelegate sharedInstance].configuration.selectedPlaceholder delegate:self];
 }
 
 - (void)onNativeAdLoaded:(CAMediatedNativeAd *)nativeAd {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
     [nativeAd registerViewForInteractionWithNativeAdView:self.nativeAdView];
+}
+
+- (void)onNativeAdLoadFailed {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
 - (void)onNativeAdClicked {

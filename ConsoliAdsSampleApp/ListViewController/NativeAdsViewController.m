@@ -16,6 +16,11 @@
 
 @interface NativeAdsViewController ()<UITableViewDelegate , UITableViewDataSource, CANativeAdRequestDelegate> {
     NSMutableArray* tableViewItems;
+    NSString* myTag;
+    
+    NSArray *nativePlaceHolders;
+    NativePlaceholderName selectedPlaceholder;
+
 }
 
 @end
@@ -32,9 +37,25 @@
     self.title = @"Native Ads ListView";
     
     tableViewItems = [NSMutableArray new];
-
-    selectedSceneIndex = 0;
+    myTag = @"!--QA-Testing-Listner--!";
     selectedListIndex = 0;
+    
+    self.pickerView.dataSource = self;
+    nativePlaceHolders = @[@"SmartoScene",
+                         @"Activity1",
+                         @"Activity2",
+                         @"Activity3",
+                         @"Activity4",
+                         @"Activity5",
+                         @"OptionA",
+                         @"OptionB",
+                         @"OptionC",
+                         @"Settings",
+                         @"About" ,
+                         @"Default"];
+    self.pickerView.hidden = YES;
+    selectedPlaceholder = Default;
+    [self.placeHolder setTitle:nativePlaceHolders[11] forState:UIControlStateNormal];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -77,18 +98,7 @@
 
 - (void)addNativeAd {
     
-    NSScanner *scanner = [NSScanner scannerWithString:self.sceneIndexTextField.text];
-    int sceneIndexResult;
-    BOOL sceneIndexHasInt = [scanner scanInt:&sceneIndexResult];
-    
-    if (sceneIndexHasInt && sceneIndexResult >= 0) {
-        
-        selectedSceneIndex = sceneIndexResult;
-        [[ConsoliAdsMediation sharedInstance] loadNativeAdInViewController:self sceneIndex:selectedSceneIndex delegate:self];
-    }
-    else {
-        [self showErrorAlert:@"Value must be an integer"];
-    }
+    [[ConsoliAdsMediation sharedInstance] loadNativeAdInViewController:self placeholder:selectedPlaceholder delegate:self];
 }
 
 - (void)showErrorAlert:(NSString*)message {
@@ -149,14 +159,29 @@
     }
 }
 
-- (void)onNativeAdLoadFailed {
-    
-}
-
 - (void)onNativeAdLoaded:(CAMediatedNativeAd *)nativeAd {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
     [self loadNewAdInTableViewAtIndex:selectedListIndex item:nativeAd];
 }
 
+- (void)onNativeAdLoadFailed {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onNativeAdClicked {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onNativeAdShown {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onNativeAdFailToShow {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+- (void)onNativeAdClosed {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
 - (IBAction)unwindToViewControllerViewController:(UIStoryboardSegue *)segue {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -165,4 +190,68 @@
     NSLog(@"%@, dealloc",NSStringFromSelector(_cmd));
 }
 
+#pragma
+#pragma mark UIPickerView
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return nativePlaceHolders.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return nativePlaceHolders[row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+    self.pickerView.hidden = YES;
+    [self.placeHolder setTitle:nativePlaceHolders[row] forState:UIControlStateNormal];
+
+    switch (row) {
+        case 0:
+            selectedPlaceholder = SmartoScene;
+            break;
+        case 1:
+            selectedPlaceholder = Activity1;
+            break;
+        case 2:
+            selectedPlaceholder = Activity2;
+            break;
+        case 3:
+            selectedPlaceholder = Activity3;
+            break;
+        case 4:
+            selectedPlaceholder = Activity4;
+            break;
+        case 5:
+            selectedPlaceholder = Activity5;
+            break;
+        case 6:
+            selectedPlaceholder = OptionA;
+            break;
+        case 7:
+            selectedPlaceholder = OptionB;
+            break;
+        case 8:
+            selectedPlaceholder = OptionC;
+            break;
+        case 9:
+            selectedPlaceholder = Settings;
+            break;
+        case 10:
+            selectedPlaceholder = About;
+            break;
+        case 11:
+            selectedPlaceholder = Default;
+            break;
+    }
+}
+
+
+- (IBAction)buttonSelectPlaceHolder:(UIButton *)sender {
+    self.pickerView.hidden = NO;
+}
 @end

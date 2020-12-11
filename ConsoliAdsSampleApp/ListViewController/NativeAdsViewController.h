@@ -10,16 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NativeAdsViewController : UIViewController {
+@interface NativeAdsViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
     
-    int selectedSceneIndex;
     int selectedListIndex;
 }
 
 @property (nonatomic , weak) IBOutlet UITableView* tableView;
 @property (nonatomic , weak) IBOutlet UITextField* listViewTextField;
-@property (nonatomic , weak) IBOutlet UITextField* sceneIndexTextField;
-
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+@property (weak, nonatomic) IBOutlet UIButton *placeHolder;
+- (IBAction)buttonSelectPlaceHolder:(UIButton *)sender;
 
 @end
 

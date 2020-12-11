@@ -14,6 +14,7 @@
 
 @interface CustomBannerAdViewController () <CAMediatedBannerAdViewDelegate> {
     CAMediatedBannerView *bannerView;
+    NSString *myTag;
 }
 
 @end
@@ -23,26 +24,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    myTag = @"!--QA-Testing-Listner--!";
 }
 
 - (IBAction)showBanner:(UIButton*)sender {
     
     [self.view endEditing:YES];
-    [[ConsoliAdsMediation sharedInstance] destroyBannerView:bannerView];
+//    [[ConsoliAdsMediation sharedInstance] destroyBannerView:bannerView];
     bannerView = [[CAMediatedBannerView alloc] init];
     [bannerView setCustomBannerSize:CGSizeMake(self.widthTextField.text.integerValue, self.heightTextField.text.integerValue)];
     bannerView.delegate = self;
-    [[ConsoliAdsMediation sharedInstance] showBannerWithIndex:[AppDelegate sharedInstance].configuration.sceneIndex bannerView:bannerView viewController:self];
+    [[ConsoliAdsMediation sharedInstance] showBanner:[AppDelegate sharedInstance].configuration.selectedPlaceholder bannerView:bannerView viewController:self];
 
 }
 
 - (void)onBannerAdLoaded:(CAMediatedBannerView *)bannerView {
-    
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
     [bannerView removeFromSuperview];
     [self.view addSubview:bannerView];
     [self setBannerViewPosition:bannerView];
 }
+
+- (void)onBannerAdLoadFailed:(CAMediatedBannerView*)bannerView {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onBannerAdClicked {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onBannerAdRefreshEvent {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+
 
 #pragma positionBannerView
 

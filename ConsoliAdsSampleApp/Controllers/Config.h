@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ConsoliAdsIconAdSizes.h"
+#import "CAMediationConstants.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,9 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , strong) NSString* productName ;
 @property (nonatomic , strong) NSString* bundleIdentifier;
 @property (nonatomic) CAIconAnimationTypes iconAdAnimationType;
-
-@property (nonatomic) int sceneIndex;
-
+@property (nonatomic) NativePlaceholderName selectedPlaceholder;
 
 @end
 

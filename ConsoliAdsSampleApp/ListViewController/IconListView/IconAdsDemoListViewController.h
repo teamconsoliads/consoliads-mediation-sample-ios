@@ -10,18 +10,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface IconAdsDemoListViewController : UIViewController {
+@interface IconAdsDemoListViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
     
-    int selectedSceneIndex;
     int selectedListIndex;
 }
 
 @property (nonatomic , weak) IBOutlet UITableView* tableView;
 @property (nonatomic , weak) IBOutlet UITextField* listViewTextField;
-@property (nonatomic , weak) IBOutlet UITextField* sceneIndexTextField;
-@property(nonatomic, strong) UIActivityIndicatorView * adLoadingIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak, nonatomic) IBOutlet UIButton *placeHolder;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+@property(nonatomic, strong) UIActivityIndicatorView * adLoadingIndicator;
 
+- (IBAction)btnPlaceHolder:(UIButton *)sender;
 - (IBAction)unwindToViewControllerViewController:(UIStoryboardSegue *)segue;
 
 @end

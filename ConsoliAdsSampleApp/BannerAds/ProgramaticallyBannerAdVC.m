@@ -14,6 +14,7 @@
 
 @interface ProgramaticallyBannerAdVC () <CAMediatedBannerAdViewDelegate> {
     CAMediatedBannerView *bannerView;
+    NSString *myTag;
 }
 
 @end
@@ -22,23 +23,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    bannerView = [[CAMediatedBannerView alloc] init];
+    bannerView.delegate = self;
+
+    myTag = @"!--QA-Testing-Listner--!";
 }
 
 - (IBAction)showBanner:(UIButton*)sender {
-    
-    [[ConsoliAdsMediation sharedInstance] destroyBannerView:bannerView];
-    bannerView = [[CAMediatedBannerView alloc] init];
-    bannerView.delegate = self;
-    [[ConsoliAdsMediation sharedInstance] showBannerWithIndex:[AppDelegate sharedInstance].configuration.sceneIndex bannerView:bannerView viewController:self];
+    [[ConsoliAdsMediation sharedInstance] showBanner:[AppDelegate sharedInstance].configuration.selectedPlaceholder bannerView:bannerView viewController:self];
 
 }
 
 - (void)onBannerAdLoaded:(CAMediatedBannerView *)bannerView {
-    
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
     [bannerView removeFromSuperview];
     [self.view addSubview:bannerView];
     [self setBannerViewPosition:bannerView];
+}
+
+- (void)onBannerAdLoadFailed:(CAMediatedBannerView*)bannerView {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onBannerAdClicked {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onBannerAdRefreshEvent {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
 #pragma positionBannerView
@@ -46,6 +58,7 @@
 - (void)setBannerViewPosition:(UIView*)bannerView {
 
     bannerView.translatesAutoresizingMaskIntoConstraints = NO;
+    bannerView.backgroundColor = UIColor.redColor;
     [self setWidthHeight:bannerView];
     if (@available(ios 11.0, *)) {
         [self positionBannerViewToSafeArea:bannerView];

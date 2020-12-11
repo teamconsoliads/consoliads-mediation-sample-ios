@@ -10,9 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BannerAdsDemoListViewController : UIViewController {
+@interface BannerAdsDemoListViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
     
-    int selectedSceneIndex;
     int selectedListIndex;
 }
 
@@ -22,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) UIActivityIndicatorView * adLoadingIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 - (IBAction)canvelButton:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+- (IBAction)btnPlaceHolder:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *placeHolder;
 
 @end
 

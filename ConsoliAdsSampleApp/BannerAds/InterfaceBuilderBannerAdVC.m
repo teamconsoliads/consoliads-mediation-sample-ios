@@ -18,7 +18,7 @@
 }
 
 - (IBAction)showBanner:(UIButton*)sender {
-    [[ConsoliAdsMediation sharedInstance] showBannerWithIndex:[AppDelegate sharedInstance].configuration.sceneIndex bannerView:self.bannerView viewController:self];
+    [[ConsoliAdsMediation sharedInstance] showBanner:[AppDelegate sharedInstance].configuration.selectedPlaceholder bannerView:self.bannerView viewController:self];
 }
 
 

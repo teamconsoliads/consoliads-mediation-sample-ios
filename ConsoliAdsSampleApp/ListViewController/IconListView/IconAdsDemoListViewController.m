@@ -19,6 +19,10 @@
 
 @interface IconAdsDemoListViewController ()<ConsoliAdsMediationIconAdDelegate> {
     //    int counter;
+    NSString* myTag;
+    NSArray *nativePlaceHolders;
+    NativePlaceholderName selectedPlaceholder;
+
 }
 
 @property (strong, nonatomic) NSMutableArray* tableViewItems;
@@ -32,24 +36,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //    counter = 3;
-    
-    selectedSceneIndex = 0;
+    myTag = @"!--QA-Testing-Listner--!";
     selectedListIndex = 0;
     self.adsToLoad = [NSMutableArray new];
     [self setupMenuTableItems];
     [self.tableView registerNib:[UINib nibWithNibName:@"MenuItem" bundle:nil] forCellReuseIdentifier:@"MenuItem"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MenuItem_IconAd" bundle:nil] forCellReuseIdentifier:@"MenuItem_IconAd"];
+    
+    self.pickerView.dataSource = self;
+    nativePlaceHolders = @[@"SmartoScene",
+                         @"Activity1",
+                         @"Activity2",
+                         @"Activity3",
+                         @"Activity4",
+                         @"Activity5",
+                         @"OptionA",
+                         @"OptionB",
+                         @"OptionC",
+                         @"Settings",
+                         @"About" ,
+                         @"Default"];
+    self.pickerView.hidden = YES;
+    selectedPlaceholder = Default;
+    [self.placeHolder setTitle:nativePlaceHolders[11] forState:UIControlStateNormal];
 }
 
 - (IBAction)addIconAdButtonPressed:(UIButton *)sender {
     [self.view endEditing:YES];
     selectedListIndex = [self convertTextToInteger:self.listViewTextField.text];
-    selectedSceneIndex = [self convertTextToInteger:self.sceneIndexTextField.text];
     
     CAIconAdView *newIconAdView = [[CAIconAdView alloc] init];
     newIconAdView.rootViewController = self;
     [self.adsToLoad addObject:newIconAdView];
-    [[ConsoliAdsMediation sharedInstance] showIconAd:selectedSceneIndex iconAdView:newIconAdView delegate:self];
+    [[ConsoliAdsMediation sharedInstance] showIconAd:selectedPlaceholder iconAdView:newIconAdView delegate:self];
 }
 
 - (IBAction)cancelButton:(UIButton *)sender {
@@ -86,18 +105,19 @@
 }
 
 -(void) onIconAdFailedToShownEvent {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
     CAIconAdView *newIconAdView = [self.adsToLoad firstObject];
     [self.adsToLoad removeObject:newIconAdView];
 }
 
 -(void) onIconAdRefreshEvent {
-    
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 -(void) onIconAdClosedEvent {
-    
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 -(void) onIconAdClickEvent {
-    
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
 - (void)setupMenuTableItems {
@@ -156,6 +176,74 @@
         result = 0;
     }
     return result;
+}
+
+#pragma
+#pragma mark UIPickerView
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return nativePlaceHolders.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return nativePlaceHolders[row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+    self.pickerView.hidden = YES;
+    [self.placeHolder setTitle:nativePlaceHolders[row] forState:UIControlStateNormal];
+
+    switch (row) {
+        case 0:
+            selectedPlaceholder = SmartoScene;
+            break;
+        case 1:
+            selectedPlaceholder = Activity1;
+            break;
+        case 2:
+            selectedPlaceholder = Activity2;
+            break;
+        case 3:
+            selectedPlaceholder = Activity3;
+            break;
+        case 4:
+            selectedPlaceholder = Activity4;
+            break;
+        case 5:
+            selectedPlaceholder = Activity5;
+            break;
+        case 6:
+            selectedPlaceholder = OptionA;
+            break;
+        case 7:
+            selectedPlaceholder = OptionB;
+            break;
+        case 8:
+            selectedPlaceholder = OptionC;
+            break;
+        case 9:
+            selectedPlaceholder = Settings;
+            break;
+        case 10:
+            selectedPlaceholder = About;
+            break;
+        case 11:
+            selectedPlaceholder = Default;
+            break;
+    }
+}
+
+- (IBAction)btnPlaceHolder:(UIButton *)sender {
+    self.pickerView.hidden = NO;
+}
+
+- (IBAction)unwindToViewControllerViewController:(UIStoryboardSegue *)segue {
+    
 }
 
 @end

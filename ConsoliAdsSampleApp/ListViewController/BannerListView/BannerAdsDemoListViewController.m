@@ -18,6 +18,11 @@
     NSMutableArray<CAMediatedBannerView*> *adsToLoad;
     NSMutableArray *loadStateForAds;
     float adViewHeight;
+    NSString* myTag;
+    
+    NSArray *nativePlaceHolders;
+    NativePlaceholderName selectedPlaceholder;
+
 }
 
 @end
@@ -27,11 +32,29 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+    myTag = @"!--QA-Testing-Listner--!";
     _adLoadingIndicator = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
     [_adLoadingIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [_adLoadingIndicator setColor:[UIColor orangeColor]];
     _adLoadingIndicator.center = CGPointMake(self.view.bounds.size.width / 2.0, self.view.bounds.size.height / 2.0);
+    
+    self.pickerView.dataSource = self;
+    nativePlaceHolders = @[@"SmartoScene",
+                         @"Activity1",
+                         @"Activity2",
+                         @"Activity3",
+                         @"Activity4",
+                         @"Activity5",
+                         @"OptionA",
+                         @"OptionB",
+                         @"OptionC",
+                         @"Settings",
+                         @"About" ,
+                         @"Default"];
+    self.pickerView.hidden = YES;
+    selectedPlaceholder = Default;
+    [self.placeHolder setTitle:nativePlaceHolders[11] forState:UIControlStateNormal];
+    
   
     adViewHeight = 100.0f;
     self.title = @"Banner Ads ListView";
@@ -40,7 +63,6 @@
     adsToLoad = [NSMutableArray new];
     loadStateForAds = [NSMutableArray new];
     
-    selectedSceneIndex = 0;
     selectedListIndex = 0;
     
     self.tableView.delegate = self;
@@ -69,6 +91,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if ([tableViewItems[indexPath.row] isKindOfClass:[CAMediatedBannerView class]]) {
+        CAMediatedBannerView *bannerView = (CAMediatedBannerView*)tableViewItems[indexPath.row];
+        CGFloat bannerHeight = bannerView.bounds.size.height;
+        if (bannerHeight >= adViewHeight) {
+            return bannerHeight;
+        }
         return adViewHeight;
     }
     return UITableViewAutomaticDimension;
@@ -116,9 +143,7 @@
 - (IBAction)addBannerAdButtonPressed:(UIButton *)sender {
     
     [self.view endEditing:YES];
-    selectedListIndex = [self convertTextToInteger:self.listViewTextField.text];
-    selectedSceneIndex = [self convertTextToInteger:self.sceneIndexTextField.text];
-    
+    selectedListIndex = [self convertTextToInteger:self.listViewTextField.text];    
     if (selectedListIndex < tableViewItems.count && selectedListIndex >= 0) {
         
         [self.view addSubview:_adLoadingIndicator];
@@ -131,7 +156,7 @@
         [adsToLoad addObject:bannerView];
         [loadStateForAds addObject:@(NO)];
 //        [self loadNewAdInTableViewAtIndex:selectedListIndex item:bannerView];
-        [[ConsoliAdsMediation sharedInstance] showBannerWithIndex:selectedSceneIndex bannerView:bannerView viewController:self];
+        [[ConsoliAdsMediation sharedInstance] showBanner:selectedPlaceholder bannerView:bannerView viewController:self];
         
     }
     else {
@@ -157,16 +182,26 @@
 
 #pragma BannerViewDelegate
 
-- (void)onBannerAdLoaded:(CAMediatedBannerView*)bannerView {
+- (void)onBannerAdLoaded:(CAMediatedBannerView *)bannerView {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
     [self endIndicator];
-    if ([adsToLoad containsObject:bannerView]) {
-        [tableViewItems insertObject:bannerView atIndex:selectedListIndex];
-        [self loadNewAdInTableViewAtIndex:selectedListIndex item:bannerView];
-    }
+       if ([adsToLoad containsObject:bannerView]) {
+           [tableViewItems insertObject:bannerView atIndex:selectedListIndex];
+           [self loadNewAdInTableViewAtIndex:selectedListIndex item:bannerView];
+       }
 }
 
-- (void)onBannerAdLoadFailed {
+- (void)onBannerAdLoadFailed:(CAMediatedBannerView*)bannerView {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
     [self endIndicator];
+}
+
+- (void)onBannerAdClicked {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onBannerAdRefreshEvent {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
 #pragma Utilities Methods
@@ -195,5 +230,69 @@
 
 - (IBAction)canvelButton:(UIButton *)sender {
     [self endIndicator];
+}
+
+#pragma
+#pragma mark UIPickerView
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return nativePlaceHolders.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return nativePlaceHolders[row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+    self.pickerView.hidden = YES;
+    [self.placeHolder setTitle:nativePlaceHolders[row] forState:UIControlStateNormal];
+
+    switch (row) {
+        case 0:
+            selectedPlaceholder = SmartoScene;
+            break;
+        case 1:
+            selectedPlaceholder = Activity1;
+            break;
+        case 2:
+            selectedPlaceholder = Activity2;
+            break;
+        case 3:
+            selectedPlaceholder = Activity3;
+            break;
+        case 4:
+            selectedPlaceholder = Activity4;
+            break;
+        case 5:
+            selectedPlaceholder = Activity5;
+            break;
+        case 6:
+            selectedPlaceholder = OptionA;
+            break;
+        case 7:
+            selectedPlaceholder = OptionB;
+            break;
+        case 8:
+            selectedPlaceholder = OptionC;
+            break;
+        case 9:
+            selectedPlaceholder = Settings;
+            break;
+        case 10:
+            selectedPlaceholder = About;
+            break;
+        case 11:
+            selectedPlaceholder = Default;
+            break;
+    }
+}
+
+- (IBAction)btnPlaceHolder:(UIButton *)sender {
+    self.pickerView.hidden = NO;
 }
 @end
