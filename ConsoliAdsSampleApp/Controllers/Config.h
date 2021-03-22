@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , strong) NSString* productName ;
 @property (nonatomic , strong) NSString* bundleIdentifier;
 @property (nonatomic) CAIconAnimationTypes iconAdAnimationType;
-@property (nonatomic) NativePlaceholderName selectedPlaceholder;
+@property (nonatomic) PlaceholderName selectedPlaceholder;
 
 @end
 

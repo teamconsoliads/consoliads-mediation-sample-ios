@@ -17,10 +17,8 @@
 @interface NativeAdsViewController ()<UITableViewDelegate , UITableViewDataSource, CANativeAdRequestDelegate> {
     NSMutableArray* tableViewItems;
     NSString* myTag;
-    
     NSArray *nativePlaceHolders;
-    NativePlaceholderName selectedPlaceholder;
-
+    PlaceholderName selectedPlaceholder;
 }
 
 @end

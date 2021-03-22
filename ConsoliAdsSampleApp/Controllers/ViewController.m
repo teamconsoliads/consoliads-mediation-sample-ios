@@ -17,7 +17,7 @@
 #import "Config.h"
 #import "CAMediationConstants.h"
 
-@interface ViewController () <ConsoliAdsMediationDelegate, ConsoliAdsMediationRewardedAdDelegate, ConsoliAdsMediationInterstitialAdDelegate, ConsoliAdsMediationIconAdDelegate, CANativeAdRequestDelegate,CAMediatedBannerAdViewDelegate> {
+@interface ViewController () <ConsoliAdsMediationDelegate, ConsoliAdsMediationRewardedAdDelegate, ConsoliAdsMediationInterstitialAdDelegate, ConsoliAdsMediationIconAdDelegate, CANativeAdRequestDelegate,CAMediatedBannerAdViewDelegate, ConsoliAdsMediationInAppDelegate> {
     BOOL userConsent;
     BOOL devMode;
     int iconAdXAxis;
@@ -53,9 +53,24 @@
     [self updateDevModeUI];
     iconAdframe = CGRectMake(250, 180.0 *([UIScreen mainScreen].bounds.size.height / 750.0), 100, 100);
     iconAdViewArray = [NSMutableArray new];
-    
+
     self.pickerView.dataSource = self;
-    nativePlaceHolders = @[@"SmartoScene",
+    nativePlaceHolders = @[@"MainMenu",
+                           @"SelectionScene",
+                           @"FinalScene",
+                           @"OnSuccess",
+                           @"OnFailure",
+                           @"OnPause",
+                           @"StoreScene",
+                           @"Gameplay",
+                           @"MidScene1",
+                           @"MidScene2",
+                           @"MidScene3",
+                           @"AppExit",
+                           @"LoadingScene1",
+                           @"LoadingScene2",
+                           @"onReward",
+                           @"SmartoScene",
                            @"Activity1",
                            @"Activity2",
                            @"Activity3",
@@ -69,9 +84,10 @@
                            @"Default"];
     self.pickerView.hidden = YES;
     [AppDelegate sharedInstance].configuration.selectedPlaceholder = Default;
-    [self.placeHolder setTitle:nativePlaceHolders[11] forState:UIControlStateNormal];
+    [self.placeHolder setTitle:nativePlaceHolders[(Default - 1)] forState:UIControlStateNormal];
     
     [[ConsoliAdsMediation sharedInstance] setDelegate:self];
+    [[ConsoliAdsMediation sharedInstance] setInAppAdDelegate:self];
     [[ConsoliAdsMediation sharedInstance] setRewardedAdDelegate:self];
     [[ConsoliAdsMediation sharedInstance] setInterstitialAdDelegate:self];
     
@@ -203,7 +219,7 @@
 }
 
 -(void) loadInterstitialAds {
-    [[ConsoliAdsMediation sharedInstance] loadInterstitial];
+    [[ConsoliAdsMediation sharedInstance] loadInterstitial:[AppDelegate sharedInstance].configuration.selectedPlaceholder];
 }
 
 - (void)showInterstitialAds {
@@ -211,7 +227,7 @@
 }
 
 -(void) loadRewardedAds {
-    [[ConsoliAdsMediation sharedInstance] loadRewarded];
+    [[ConsoliAdsMediation sharedInstance] loadRewarded:[AppDelegate sharedInstance].configuration.selectedPlaceholder];
 }
 
 -(void)showRewardedAds {
@@ -280,49 +296,53 @@
     [iconAdViewArray removeLastObject];
 }
 
+#pragma mark ConsoliAdsMediationDelegate
+
 - (void)onConsoliAdsInitializationSuccess:(BOOL)status {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+#pragma mark ConsoliAdsMediationInterstitialAdDelegate
+
+- (void)onInterstitialAdLoaded:(PlaceholderName)placeholderName {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onInterstitialAdFailToLoad:(PlaceholderName)placeholderName {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onInterstitialAdShown:(PlaceholderName)placeholderName {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onInterstitialAdFailedToShow:(PlaceholderName)placeholderName {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
 - (void)onInterstitialAdClicked {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
-- (void)onInterstitialAdClosed {
+
+- (void)onInterstitialAdClosed:(PlaceholderName)placeholderName { 
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-- (void)onInterstitialAdFailToLoad {
+#pragma mark ConsoliAdsMediationRewardedAdDelegate
+
+- (void)onRewardedVideoAdLoaded:(PlaceholderName)placeholderName {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-
-- (void)onInterstitialAdFailedToShow:(NativePlaceholderName)placeholderName {
+- (void)onRewardedVideoAdFailToLoad:(PlaceholderName)placeholderName {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-
-- (void)onInterstitialAdLoaded {
+- (void)onRewardedVideoAdShown:(PlaceholderName)placeholderName {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-
-- (void)onInterstitialAdShown:(NativePlaceholderName)placeholderName {
-    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
-}
-
-- (void)onRewardedVideoAdLoaded {
-    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
-}
-
-- (void)onRewardedVideoAdFailToLoad {
-    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
-}
-
-- (void)onRewardedVideoAdShown {
-    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
-}
-
-- (void)onRewardedVideoAdCompleted {
+- (void)onRewardedVideoAdFailToShow:(PlaceholderName)placeholderName {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
@@ -330,13 +350,15 @@
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-- (void)onRewardedVideoAdFailToShow {
+- (void)onRewardedVideoAdClosed:(PlaceholderName)placeholderName { 
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-- (void)onRewardedVideoAdClosed {
+- (void)onRewardedVideoAdCompleted:(PlaceholderName)placeholderName { 
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
+
+#pragma mark CAMediatedBannerAdViewDelegate
 
 - (void)onBannerAdLoaded:(CAMediatedBannerView *)bannerView {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
@@ -358,6 +380,8 @@
     NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
+#pragma mark ConsoliAdsMediationIconAdDelegate
+
 -(void)onIconAdShownEvent {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
@@ -375,6 +399,19 @@
     
 }
 -(void) onIconAdClickEvent {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+#pragma mark ConsoliAdsMediationInAppDelegate
+
+- (void)onInAppPurchaseFailed:(CAInAppError*)error {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+- (void)onInAppPurchaseSuccess:(CAInAppDetails*)product {
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onInAppPurchaseRestored:(CAInAppDetails *)product { 
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
@@ -466,49 +503,13 @@
     return nativePlaceHolders[row];
 }
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
     self.pickerView.hidden = YES;
     [self.placeHolder setTitle:nativePlaceHolders[row] forState:UIControlStateNormal];
     
-    switch (row) {
-        case 0:
-            [AppDelegate sharedInstance].configuration.selectedPlaceholder = SmartoScene;
-            break;
-        case 1:
-            [AppDelegate sharedInstance].configuration.selectedPlaceholder = Activity1;
-            break;
-        case 2:
-            [AppDelegate sharedInstance].configuration.selectedPlaceholder = Activity2;
-            break;
-        case 3:
-            [AppDelegate sharedInstance].configuration.selectedPlaceholder = Activity3;
-            break;
-        case 4:
-            [AppDelegate sharedInstance].configuration.selectedPlaceholder = Activity4;
-            break;
-        case 5:
-            [AppDelegate sharedInstance].configuration.selectedPlaceholder = Activity5;
-            break;
-        case 6:
-            [AppDelegate sharedInstance].configuration.selectedPlaceholder = OptionA;
-            break;
-        case 7:
-            [AppDelegate sharedInstance].configuration.selectedPlaceholder = OptionB;
-            break;
-        case 8:
-            [AppDelegate sharedInstance].configuration.selectedPlaceholder = OptionC;
-            break;
-        case 9:
-            [AppDelegate sharedInstance].configuration.selectedPlaceholder = Settings;
-            break;
-        case 10:
-            [AppDelegate sharedInstance].configuration.selectedPlaceholder = About;
-            break;
-        case 11:
-            [AppDelegate sharedInstance].configuration.selectedPlaceholder = Default;
-            break;
-    }
+    PlaceholderName placeholderName = (PlaceholderName)(row + 1);
+    [AppDelegate sharedInstance].configuration.selectedPlaceholder = placeholderName;
 }
 
 @end

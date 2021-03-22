@@ -14,6 +14,7 @@
 
 @interface ProgramaticallyBannerAdVC () <CAMediatedBannerAdViewDelegate> {
     CAMediatedBannerView *bannerView;
+    CAMediatedBannerView *topBannerView;
     NSString *myTag;
 }
 
@@ -26,19 +27,39 @@
     bannerView = [[CAMediatedBannerView alloc] init];
     bannerView.delegate = self;
 
+    topBannerView = [[CAMediatedBannerView alloc] init];
+    topBannerView.delegate = self;
+
     myTag = @"!--QA-Testing-Listner--!";
 }
 
 - (IBAction)showBanner:(UIButton*)sender {
     [[ConsoliAdsMediation sharedInstance] showBanner:[AppDelegate sharedInstance].configuration.selectedPlaceholder bannerView:bannerView viewController:self];
+}
 
+- (IBAction)showBannerAtTop:(UIButton*)sender {
+    [[ConsoliAdsMediation sharedInstance] showBanner:[AppDelegate sharedInstance].configuration.selectedPlaceholder bannerView:topBannerView viewController:self];
+}
+- (IBAction)hideBannerTop:(UIButton *)sender {
+    [topBannerView destroyBanner];
+    [topBannerView removeFromSuperview];
+}
+- (IBAction)HideBanner:(UIButton *)sender {
+    [bannerView destroyBanner];
+    [bannerView removeFromSuperview];
 }
 
 - (void)onBannerAdLoaded:(CAMediatedBannerView *)bannerView {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
     [bannerView removeFromSuperview];
     [self.view addSubview:bannerView];
-    [self setBannerViewPosition:bannerView];
+    
+    if (bannerView == topBannerView) {
+        [self setBannerViewPosition:bannerView onTop:YES];
+    }
+    else {
+        [self setBannerViewPosition:bannerView onTop:NO];
+    }
 }
 
 - (void)onBannerAdLoadFailed:(CAMediatedBannerView*)bannerView {
@@ -55,17 +76,32 @@
 
 #pragma positionBannerView
 
-- (void)setBannerViewPosition:(UIView*)bannerView {
+- (void)setBannerViewPosition:(UIView*)bannerView onTop:(BOOL)onTop {
 
     bannerView.translatesAutoresizingMaskIntoConstraints = NO;
-    bannerView.backgroundColor = UIColor.redColor;
     [self setWidthHeight:bannerView];
+
     if (@available(ios 11.0, *)) {
-        [self positionBannerViewToSafeArea:bannerView];
+        if (onTop) {
+            [self positionBannerViewToTopSafeArea:bannerView];
+        }
+        else {
+            [self positionBannerViewToSafeArea:bannerView];
+        }
     }
     else {
         [self positionBannerView:bannerView];
     }
+}
+
+- (void)positionBannerViewToTopSafeArea:(UIView*)bannerView NS_AVAILABLE_IOS(11.0) {
+    
+    UILayoutGuide *guide = self.view.safeAreaLayoutGuide;
+    
+    [NSLayoutConstraint activateConstraints:@[
+        [bannerView.topAnchor constraintEqualToAnchor:guide.topAnchor],
+        [bannerView.centerXAnchor constraintEqualToAnchor:guide.centerXAnchor]
+    ]];
 }
 
 - (void)positionBannerViewToSafeArea:(UIView*)bannerView NS_AVAILABLE_IOS(11.0) {

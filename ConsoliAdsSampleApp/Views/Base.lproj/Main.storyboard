@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -559,17 +559,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCX-P4-YUd">
-                                <rect key="frame" x="161.5" y="433" width="91" height="30"/>
-                                <state key="normal" title="Show Banner"/>
+                                <rect key="frame" x="125.5" y="433" width="163" height="30"/>
+                                <state key="normal" title="Show Banner At Bottom"/>
                                 <connections>
                                     <action selector="showBanner:" destination="raH-TM-JYH" eventType="touchUpInside" id="Qyo-hw-Iyk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CP6-pu-JIs">
+                                <rect key="frame" x="137.5" y="333" width="139" height="30"/>
+                                <state key="normal" title="Show Banner At Top"/>
+                                <connections>
+                                    <action selector="showBannerAtTop:" destination="raH-TM-JYH" eventType="touchUpInside" id="QjV-EN-vqU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSz-gN-f4e">
+                                <rect key="frame" x="137.5" y="483" width="139" height="30"/>
+                                <state key="normal" title="Hide Banner Bottom"/>
+                                <connections>
+                                    <action selector="HideBanner:" destination="raH-TM-JYH" eventType="touchUpInside" id="PTT-Qp-bAS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="659-e6-l0X">
+                                <rect key="frame" x="150" y="383" width="114" height="30"/>
+                                <state key="normal" title="Hide Banner Top"/>
+                                <connections>
+                                    <action selector="hideBannerTop:" destination="raH-TM-JYH" eventType="touchUpInside" id="n59-8Q-JbA"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zCX-P4-YUd" firstAttribute="centerX" secondItem="2k5-9F-Jdw" secondAttribute="centerX" id="ChH-Ve-VKi"/>
-                            <constraint firstItem="zCX-P4-YUd" firstAttribute="centerY" secondItem="2k5-9F-Jdw" secondAttribute="centerY" id="Kx2-zF-64o"/>
+                            <constraint firstItem="zCX-P4-YUd" firstAttribute="top" secondItem="659-e6-l0X" secondAttribute="bottom" constant="20" id="7Go-Lu-s3o"/>
+                            <constraint firstItem="659-e6-l0X" firstAttribute="centerX" secondItem="2k5-9F-Jdw" secondAttribute="centerX" id="B18-6j-kNs"/>
+                            <constraint firstItem="659-e6-l0X" firstAttribute="top" secondItem="CP6-pu-JIs" secondAttribute="bottom" constant="20" id="Q0C-Pz-BCO"/>
+                            <constraint firstItem="zCX-P4-YUd" firstAttribute="centerY" secondItem="2k5-9F-Jdw" secondAttribute="centerY" id="RCw-yW-Cj5"/>
+                            <constraint firstItem="zCX-P4-YUd" firstAttribute="centerX" secondItem="2k5-9F-Jdw" secondAttribute="centerX" id="ZBc-CG-IkZ"/>
+                            <constraint firstItem="RSz-gN-f4e" firstAttribute="centerX" secondItem="2k5-9F-Jdw" secondAttribute="centerX" id="nV5-uG-VZa"/>
+                            <constraint firstItem="RSz-gN-f4e" firstAttribute="top" secondItem="zCX-P4-YUd" secondAttribute="bottom" constant="20" id="oaQ-Mp-GMu"/>
+                            <constraint firstItem="CP6-pu-JIs" firstAttribute="centerX" secondItem="2k5-9F-Jdw" secondAttribute="centerX" id="uwm-14-ATk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Programatically" id="8Ld-KS-t9L"/>

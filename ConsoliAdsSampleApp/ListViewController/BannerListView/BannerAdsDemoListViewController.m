@@ -21,7 +21,7 @@
     NSString* myTag;
     
     NSArray *nativePlaceHolders;
-    NativePlaceholderName selectedPlaceholder;
+    PlaceholderName selectedPlaceholder;
 
 }
 
