@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    myTag = @"!--QA-Testing-Listner--!";
+    myTag = @"!--SAMPLE-Listner--!";
 }
 
 - (IBAction)showBanner:(UIButton*)sender {

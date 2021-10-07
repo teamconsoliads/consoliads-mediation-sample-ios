@@ -17,7 +17,7 @@
 #import "Config.h"
 #import "CAMediationConstants.h"
 
-@interface ViewController () <ConsoliAdsMediationDelegate, ConsoliAdsMediationRewardedAdDelegate, ConsoliAdsMediationInterstitialAdDelegate, ConsoliAdsMediationIconAdDelegate, CANativeAdRequestDelegate,CAMediatedBannerAdViewDelegate, ConsoliAdsMediationInAppDelegate> {
+@interface ViewController () <ConsoliAdsMediationDelegate, ConsoliAdsMediationRewardedAdDelegate, ConsoliAdsMediationInterstitialAdDelegate, ConsoliAdsMediationIconAdDelegate, CANativeAdRequestDelegate,CAMediatedBannerAdViewDelegate, ConsoliAdsMediationInAppDelegate,ConsoliAdsMediationAppOpenAdDelegate> {
     BOOL userConsent;
     BOOL devMode;
     int iconAdXAxis;
@@ -46,7 +46,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    myTag = @"!--QA-Testing-Listner--!";
+    myTag = @"!--SAMPLE-Listner--!";
     userConsent = true;
     devMode = NO;
     [self updateUserConsentUI];
@@ -90,7 +90,8 @@
     [[ConsoliAdsMediation sharedInstance] setInAppAdDelegate:self];
     [[ConsoliAdsMediation sharedInstance] setRewardedAdDelegate:self];
     [[ConsoliAdsMediation sharedInstance] setInterstitialAdDelegate:self];
-    
+    [[ConsoliAdsMediation sharedInstance] setAppOpenAdDelegate:self];
+
     iconAdView = [[CAIconAdView alloc] initWithFrame:iconAdframe];
     iconAdView.rootViewController = self;
     [iconAdView setAnimationType:[AppDelegate sharedInstance].configuration.iconAdAnimationType animationDuration:NO];
@@ -172,6 +173,12 @@
         case 16:
             self.pickerView.hidden = NO;
             break;
+        case 17:
+            [self loadAppOpenAds];
+            break;
+        case 18:
+            [self showAppOpenAds];
+            break;
         default:
             break;
     }
@@ -191,7 +198,7 @@
      Param 2: viewControler -  It's an optional parameter. If developer doesn't provide value then it's default value will be "nil". Banner will not be displayed, if developer calls show banner and ConsoliMediation mediation being initialized meanwhile.
      */
     // MARK: set its value to YES to enable devmode
-    [[ConsoliAdsMediation sharedInstance] initialize:devMode boolUserConsent:userConsent viewController:self userSignature:@"123456778"];
+    [[ConsoliAdsMediation sharedInstance] initialize:NO boolUserConsent:userConsent viewController:self userSignature:@"567f2188d5d283f6fa4fccec99dc6677"];
 }
 
 -(void)updateUserConsentUI {
@@ -225,6 +232,19 @@
 - (void)showInterstitialAds {
     [[ConsoliAdsMediation sharedInstance]showInterstitial:[AppDelegate sharedInstance].configuration.selectedPlaceholder viewController:self];
 }
+
+-(void)showAppOpenAds {
+
+    [[ConsoliAdsMediation sharedInstance]showAppOpenAds:[AppDelegate sharedInstance].configuration.selectedPlaceholder viewController:self];
+    
+
+}
+
+-(void)loadAppOpenAds {
+    [[ConsoliAdsMediation sharedInstance] loadAppOpenAds:UIInterfaceOrientationPortrait];
+}
+
+
 
 -(void) loadRewardedAds {
     [[ConsoliAdsMediation sharedInstance] loadRewarded:[AppDelegate sharedInstance].configuration.selectedPlaceholder];
@@ -324,7 +344,7 @@
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-- (void)onInterstitialAdClosed:(PlaceholderName)placeholderName { 
+- (void)onInterstitialAdClosed:(PlaceholderName)placeholderName {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
@@ -350,11 +370,11 @@
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-- (void)onRewardedVideoAdClosed:(PlaceholderName)placeholderName { 
+- (void)onRewardedVideoAdClosed:(PlaceholderName)placeholderName {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-- (void)onRewardedVideoAdCompleted:(PlaceholderName)placeholderName { 
+- (void)onRewardedVideoAdCompleted:(PlaceholderName)placeholderName {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
@@ -411,7 +431,7 @@
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
-- (void)onInAppPurchaseRestored:(CAInAppDetails *)product { 
+- (void)onInAppPurchaseRestored:(CAInAppDetails *)product {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
 }
 
@@ -542,6 +562,31 @@
 }
 - (void)onNativeAdClosed {
     NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+
+- (void)onAppOpenAdLoaded:(PlaceholderName)placeholderName{
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+- (void)onAppOpenAdFailToLoad:(PlaceholderName)placeholderName{
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+- (void)onAppOpenAdShown:(PlaceholderName)placeholderName{
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+//    [self loadAppOpenAds];
+
+}
+- (void)onAppOpenAdClicked{
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+}
+- (void)onAppOpenAdClosed:(PlaceholderName)placeholderName{
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+//    [self showAppOpenAds];
+
+}
+- (void)onAppOpenAdFailedToShow:(PlaceholderName)placeholderName{
+    NSLog(@"%@ : %s",myTag, __PRETTY_FUNCTION__);
+//    [self loadAppOpenAds];
+
 }
 
 @end

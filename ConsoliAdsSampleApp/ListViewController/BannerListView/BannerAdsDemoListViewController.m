@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    myTag = @"!--QA-Testing-Listner--!";
+    myTag = @"!--SAMPLE-Listner--!";
     _adLoadingIndicator = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
     [_adLoadingIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [_adLoadingIndicator setColor:[UIColor orangeColor]];

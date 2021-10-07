@@ -41,6 +41,14 @@
 		BACBFE192567C46D00C97749 /* IconAd.xib in Resources */ = {isa = PBXBuildFile; fileRef = BACBFE162567C46C00C97749 /* IconAd.xib */; };
 		BACBFE1A2567C46D00C97749 /* IconAdsDemoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACBFE182567C46C00C97749 /* IconAdsDemoListViewController.m */; };
 		F281C7D924CC04FF00BD88A0 /* MenuItemIconAd.m in Sources */ = {isa = PBXBuildFile; fileRef = F281C7D724CC04FF00BD88A0 /* MenuItemIconAd.m */; };
+		FC8C5C90270EC75700283411 /* libConsoliAdsInApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8C5C6F270EC75700283411 /* libConsoliAdsInApp.a */; };
+		FC8C5C91270EC75700283411 /* libconsoliads-mediation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8C5C71270EC75700283411 /* libconsoliads-mediation.a */; };
+		FC8C5C92270EC75700283411 /* libConsoliAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8C5C73270EC75700283411 /* libConsoliAd.a */; };
+		FC8C5C93270EC75700283411 /* ConsoliAdsResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FC8C5C77270EC75700283411 /* ConsoliAdsResources.bundle */; };
+		FC8C5C94270EC75700283411 /* libConsoliMediation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8C5C7C270EC75700283411 /* libConsoliMediation.a */; };
+		FC8C5C95270EC75700283411 /* MediationNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8C5C7D270EC75700283411 /* MediationNativeAdView.xib */; };
+		FC8C5C96270EC75700283411 /* libCAAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8C5C80270EC75700283411 /* libCAAnalytics.a */; };
+		FC8C5C97270EC75800283411 /* MediationNativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8C5C86270EC75700283411 /* MediationNativeAdView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -107,6 +115,39 @@
 		BACBFE182567C46C00C97749 /* IconAdsDemoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconAdsDemoListViewController.m; sourceTree = "<group>"; };
 		F281C7D724CC04FF00BD88A0 /* MenuItemIconAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemIconAd.m; sourceTree = "<group>"; };
 		F281C7D824CC04FF00BD88A0 /* MenuItemIconAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemIconAd.h; sourceTree = "<group>"; };
+		FC8C5C6F270EC75700283411 /* libConsoliAdsInApp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libConsoliAdsInApp.a; sourceTree = "<group>"; };
+		FC8C5C70270EC75700283411 /* CAIconAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAIconAdView.h; sourceTree = "<group>"; };
+		FC8C5C71270EC75700283411 /* libconsoliads-mediation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libconsoliads-mediation.a"; sourceTree = "<group>"; };
+		FC8C5C72270EC75700283411 /* CANativeAdMediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CANativeAdMediaView.h; sourceTree = "<group>"; };
+		FC8C5C73270EC75700283411 /* libConsoliAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libConsoliAd.a; sourceTree = "<group>"; };
+		FC8C5C74270EC75700283411 /* ConsoliAdsBannerTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoliAdsBannerTypes.h; sourceTree = "<group>"; };
+		FC8C5C75270EC75700283411 /* IconAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconAdView.h; sourceTree = "<group>"; };
+		FC8C5C76270EC75700283411 /* ConsoliAdIOSPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoliAdIOSPlugin.h; sourceTree = "<group>"; };
+		FC8C5C77270EC75700283411 /* ConsoliAdsResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ConsoliAdsResources.bundle; sourceTree = "<group>"; };
+		FC8C5C78270EC75700283411 /* CAMediatedBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMediatedBannerView.h; sourceTree = "<group>"; };
+		FC8C5C79270EC75700283411 /* NativeAdBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeAdBase.h; sourceTree = "<group>"; };
+		FC8C5C7A270EC75700283411 /* MediationNativeAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediationNativeAdView.h; sourceTree = "<group>"; };
+		FC8C5C7B270EC75700283411 /* ConsoliAdsIconAdSizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoliAdsIconAdSizes.h; sourceTree = "<group>"; };
+		FC8C5C7C270EC75700283411 /* libConsoliMediation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libConsoliMediation.a; sourceTree = "<group>"; };
+		FC8C5C7D270EC75700283411 /* MediationNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediationNativeAdView.xib; sourceTree = "<group>"; };
+		FC8C5C7E270EC75700283411 /* ConsoliSDKAdsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoliSDKAdsDelegate.h; sourceTree = "<group>"; };
+		FC8C5C7F270EC75700283411 /* CAAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAnalytics.h; sourceTree = "<group>"; };
+		FC8C5C80270EC75700283411 /* libCAAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCAAnalytics.a; sourceTree = "<group>"; };
+		FC8C5C81270EC75700283411 /* CAMediatedNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMediatedNativeAd.h; sourceTree = "<group>"; };
+		FC8C5C82270EC75700283411 /* CAMediationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMediationConstants.h; sourceTree = "<group>"; };
+		FC8C5C83270EC75700283411 /* CAInAppDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAInAppDetails.h; sourceTree = "<group>"; };
+		FC8C5C84270EC75700283411 /* ConsoliAdsMediationIconAdDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoliAdsMediationIconAdDelegate.h; sourceTree = "<group>"; };
+		FC8C5C85270EC75700283411 /* ConsoliAdsMediationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoliAdsMediationDelegate.h; sourceTree = "<group>"; };
+		FC8C5C86270EC75700283411 /* MediationNativeAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediationNativeAdView.m; sourceTree = "<group>"; };
+		FC8C5C87270EC75700283411 /* IconAdBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconAdBase.h; sourceTree = "<group>"; };
+		FC8C5C88270EC75700283411 /* CAAdChoicesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAdChoicesView.h; sourceTree = "<group>"; };
+		FC8C5C89270EC75700283411 /* CANativeAdRenderingDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CANativeAdRenderingDelegate.h; sourceTree = "<group>"; };
+		FC8C5C8A270EC75700283411 /* BannerAdDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerAdDelegate.h; sourceTree = "<group>"; };
+		FC8C5C8B270EC75700283411 /* NativeAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeAdView.h; sourceTree = "<group>"; };
+		FC8C5C8C270EC75700283411 /* ConsoliAdsMediation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoliAdsMediation.h; sourceTree = "<group>"; };
+		FC8C5C8D270EC75700283411 /* CAInAppError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAInAppError.h; sourceTree = "<group>"; };
+		FC8C5C8E270EC75700283411 /* CANativeAdRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CANativeAdRequestDelegate.h; sourceTree = "<group>"; };
+		FC8C5C8F270EC75700283411 /* IconAdDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconAdDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +158,13 @@
 				8407BFA824B70AFF00B1F068 /* VideoToolbox.framework in Frameworks */,
 				1D00DD832379358200A87679 /* libxml2.2.tbd in Frameworks */,
 				8407BFAA24B70B8600B1F068 /* CoreMotion.framework in Frameworks */,
+				FC8C5C96270EC75700283411 /* libCAAnalytics.a in Frameworks */,
 				BA7BE8B52371C8C400BD9A3C /* libc++.tbd in Frameworks */,
+				FC8C5C91270EC75700283411 /* libconsoliads-mediation.a in Frameworks */,
 				BA7BE8B62371C8C400BD9A3C /* libc++abi.tbd in Frameworks */,
+				FC8C5C94270EC75700283411 /* libConsoliMediation.a in Frameworks */,
+				FC8C5C92270EC75700283411 /* libConsoliAd.a in Frameworks */,
+				FC8C5C90270EC75700283411 /* libConsoliAdsInApp.a in Frameworks */,
 				BA7BE8B72371C8C400BD9A3C /* libc++.1.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +205,7 @@
 		1D33BFC8217DA81D0013DDF9 /* ConsoliAdsSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				FC8C5C6E270EC75700283411 /* Mediation */,
 				3A14747722854FE000B38FCC /* Views */,
 				3A14747622854FC400B38FCC /* Images */,
 				1D33BFD7217DA8200013DDF9 /* Info.plist */,
@@ -270,6 +317,46 @@
 			path = IconListView;
 			sourceTree = "<group>";
 		};
+		FC8C5C6E270EC75700283411 /* Mediation */ = {
+			isa = PBXGroup;
+			children = (
+				FC8C5C6F270EC75700283411 /* libConsoliAdsInApp.a */,
+				FC8C5C70270EC75700283411 /* CAIconAdView.h */,
+				FC8C5C71270EC75700283411 /* libconsoliads-mediation.a */,
+				FC8C5C72270EC75700283411 /* CANativeAdMediaView.h */,
+				FC8C5C73270EC75700283411 /* libConsoliAd.a */,
+				FC8C5C74270EC75700283411 /* ConsoliAdsBannerTypes.h */,
+				FC8C5C75270EC75700283411 /* IconAdView.h */,
+				FC8C5C76270EC75700283411 /* ConsoliAdIOSPlugin.h */,
+				FC8C5C77270EC75700283411 /* ConsoliAdsResources.bundle */,
+				FC8C5C78270EC75700283411 /* CAMediatedBannerView.h */,
+				FC8C5C79270EC75700283411 /* NativeAdBase.h */,
+				FC8C5C7A270EC75700283411 /* MediationNativeAdView.h */,
+				FC8C5C7B270EC75700283411 /* ConsoliAdsIconAdSizes.h */,
+				FC8C5C7C270EC75700283411 /* libConsoliMediation.a */,
+				FC8C5C7D270EC75700283411 /* MediationNativeAdView.xib */,
+				FC8C5C7E270EC75700283411 /* ConsoliSDKAdsDelegate.h */,
+				FC8C5C7F270EC75700283411 /* CAAnalytics.h */,
+				FC8C5C80270EC75700283411 /* libCAAnalytics.a */,
+				FC8C5C81270EC75700283411 /* CAMediatedNativeAd.h */,
+				FC8C5C82270EC75700283411 /* CAMediationConstants.h */,
+				FC8C5C83270EC75700283411 /* CAInAppDetails.h */,
+				FC8C5C84270EC75700283411 /* ConsoliAdsMediationIconAdDelegate.h */,
+				FC8C5C85270EC75700283411 /* ConsoliAdsMediationDelegate.h */,
+				FC8C5C86270EC75700283411 /* MediationNativeAdView.m */,
+				FC8C5C87270EC75700283411 /* IconAdBase.h */,
+				FC8C5C88270EC75700283411 /* CAAdChoicesView.h */,
+				FC8C5C89270EC75700283411 /* CANativeAdRenderingDelegate.h */,
+				FC8C5C8A270EC75700283411 /* BannerAdDelegate.h */,
+				FC8C5C8B270EC75700283411 /* NativeAdView.h */,
+				FC8C5C8C270EC75700283411 /* ConsoliAdsMediation.h */,
+				FC8C5C8D270EC75700283411 /* CAInAppError.h */,
+				FC8C5C8E270EC75700283411 /* CANativeAdRequestDelegate.h */,
+				FC8C5C8F270EC75700283411 /* IconAdDelegate.h */,
+			);
+			path = Mediation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -343,8 +430,10 @@
 				8450C26224CC14FC001F5FF6 /* MenuItem_IconAd.xib in Resources */,
 				1D33BFD1217DA81D0013DDF9 /* Main.storyboard in Resources */,
 				3AD70C3521CBB6F400AA99DD /* uncheck.png in Resources */,
+				FC8C5C93270EC75700283411 /* ConsoliAdsResources.bundle in Resources */,
 				3AD70C3621CBB6F400AA99DD /* Background-04.png in Resources */,
 				1D4FA91D22689FE300D01B28 /* menuItemsJSON.json in Resources */,
+				FC8C5C95270EC75700283411 /* MediationNativeAdView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +450,7 @@
 				8496677B2460378C00E44C81 /* ChooseBannerTableViewController.m in Sources */,
 				1D33BFCE217DA81D0013DDF9 /* ViewController.m in Sources */,
 				849667752460375600E44C81 /* ProgramaticallyBannerAdVC.m in Sources */,
+				FC8C5C97270EC75800283411 /* MediationNativeAdView.m in Sources */,
 				1D4FA91E22689FE300D01B28 /* MenuItemViewCell.m in Sources */,
 				1D2D932D22AE355F00FB5977 /* Config.m in Sources */,
 				1D33BFD9217DA8200013DDF9 /* main.m in Sources */,
@@ -512,24 +602,194 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = XNR652K8UD;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Vungle_iOS_6.9.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Startapp_iOS_4.6.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Applovin_iOS_10.3.4",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Ironsource_iOS_7.1.8",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/TapJoy_iOS_12.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Chartboost_iOS_8.4.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/UnityAds_iOS_3.7.5",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Vungle_iOS_6.9.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Startapp_iOS_4.6.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Applovin_iOS_10.3.4",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Ironsource_iOS_7.1.8",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/TapJoy_iOS_12.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Chartboost_iOS_8.4.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/UnityAds_iOS_3.7.5",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Vungle_iOS_6.9.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Startapp_iOS_4.6.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Applovin_iOS_10.3.4",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Ironsource_iOS_7.1.8",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/TapJoy_iOS_12.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Chartboost_iOS_8.4.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/UnityAds_iOS_3.7.5",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Startapp_iOS_4.6.6",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/ConsoliAdsSampleApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.1.2_mongo",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.1.4_mongo",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Vungle_iOS_6.9.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Startapp_iOS_4.6.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Applovin_iOS_10.3.4",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/kidoz_iOS_v_8.9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/kidoz_iOS_v_8.9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Ironsource_iOS_7.1.8",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/TapJoy_iOS_12.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Chartboost_iOS_8.4.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/UnityAds_iOS_3.7.5",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/ConsoliAds-sdk",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/ConsoliAds-sdk",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/ConsoliAds-sdk",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Vungle_iOS_6.9.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Startapp_iOS_4.6.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Applovin_iOS_10.3.4",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/kidoz_iOS_v_8.9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/kidoz_iOS_v_8.9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Ironsource_iOS_7.1.8",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/TapJoy_iOS_12.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Chartboost_iOS_8.4.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/UnityAds_iOS_3.7.5",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_13.1.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Vungle_iOS_6.9.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Startapp_iOS_4.6.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Applovin_iOS_10.3.4",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/kidoz_iOS_v_8.9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/kidoz_iOS_v_8.9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Ironsource_iOS_7.1.8",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/TapJoy_iOS_12.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Chartboost_iOS_8.4.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/UnityAds_iOS_3.7.5",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Startapp_iOS_4.6.6",
+				);
 				MARKETING_VERSION = 2.2;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.imagosoftware.partia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thirteenonezero.iostesting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Generic DEV PP 6/8/21";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -539,11 +799,108 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = XNR652K8UD;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Vungle_iOS_6.9.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Startapp_iOS_4.6.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Applovin_iOS_10.3.4",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Ironsource_iOS_7.1.8",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/TapJoy_iOS_12.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Chartboost_iOS_8.4.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/UnityAds_iOS_3.7.5",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Vungle_iOS_6.9.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Startapp_iOS_4.6.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Applovin_iOS_10.3.4",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Ironsource_iOS_7.1.8",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/TapJoy_iOS_12.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Chartboost_iOS_8.4.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/UnityAds_iOS_3.7.5",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Vungle_iOS_6.9.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Startapp_iOS_4.6.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Applovin_iOS_10.3.4",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Ironsource_iOS_7.1.8",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/TapJoy_iOS_12.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Chartboost_iOS_8.4.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/UnityAds_iOS_3.7.5",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Startapp_iOS_4.6.6",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/ConsoliAdsSampleApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -551,12 +908,85 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.1.2_mongo",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.1.4_mongo",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Vungle_iOS_6.9.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Startapp_iOS_4.6.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Applovin_iOS_10.3.4",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/kidoz_iOS_v_8.9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/kidoz_iOS_v_8.9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Ironsource_iOS_7.1.8",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/TapJoy_iOS_12.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Chartboost_iOS_8.4.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/UnityAds_iOS_3.7.5",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/ConsoliAds-sdk",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/ConsoliAds-sdk",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/ConsoliAds-sdk",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_12.3.1\\ ",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Vungle_iOS_6.9.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Startapp_iOS_4.6.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Applovin_iOS_10.3.4",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/kidoz_iOS_v_8.9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/kidoz_iOS_v_8.9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Ironsource_iOS_7.1.8",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/TapJoy_iOS_12.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Chartboost_iOS_8.4.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/UnityAds_iOS_3.7.5",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Updated\\ Frameworks\\ iOS\\ Mediation/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation_v_13.1.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Vungle_iOS_6.9.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/mintegral_iOS_6.9.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Admob_iOS_8.8.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Startapp_iOS_4.6.6",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Applovin_iOS_10.3.4",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/FBAudienceNetwork_iOS_6.5.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/kidoz_iOS_v_8.9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/kidoz_iOS_v_8.9.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Mopub_iOS_5.18.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Ironsource_iOS_7.1.8",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/TapJoy_iOS_12.8.1",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Chartboost_iOS_8.4.2",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/UnityAds_iOS_3.7.5",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Mediation",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Adcolony_iOS_4.7.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Inmobi_iOS_9.2.0",
+					"$(PROJECT_DIR)/ConsoliAdsSampleApp/Frameworks\\ iOS/Startapp_iOS_4.6.6",
+				);
 				MARKETING_VERSION = 2.2;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.imagosoftware.partia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thirteenonezero.iostesting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Generic DEV PP 6/8/21";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

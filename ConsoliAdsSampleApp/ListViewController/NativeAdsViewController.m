@@ -35,7 +35,7 @@
     self.title = @"Native Ads ListView";
     
     tableViewItems = [NSMutableArray new];
-    myTag = @"!--QA-Testing-Listner--!";
+    myTag = @"!--SAMPLE-Listner--!";
     selectedListIndex = 0;
     
     self.pickerView.dataSource = self;

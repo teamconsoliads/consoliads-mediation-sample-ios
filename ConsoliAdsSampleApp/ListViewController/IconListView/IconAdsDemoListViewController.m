@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //    counter = 3;
-    myTag = @"!--QA-Testing-Listner--!";
+    myTag = @"!--SAMPLE-Listner--!";
     selectedListIndex = 0;
     self.adsToLoad = [NSMutableArray new];
     [self setupMenuTableItems];

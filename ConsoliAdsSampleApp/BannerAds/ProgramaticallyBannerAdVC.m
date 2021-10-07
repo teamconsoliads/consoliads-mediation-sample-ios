@@ -30,7 +30,7 @@
     topBannerView = [[CAMediatedBannerView alloc] init];
     topBannerView.delegate = self;
 
-    myTag = @"!--QA-Testing-Listner--!";
+    myTag = @"!--SAMPLE-Listner--!";
 }
 
 - (IBAction)showBanner:(UIButton*)sender {
