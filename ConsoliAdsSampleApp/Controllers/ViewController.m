@@ -247,7 +247,7 @@
 
 
 -(void) loadRewardedAds {
-    [[ConsoliAdsMediation sharedInstance] loadRewarded:[AppDelegate sharedInstance].configuration.selectedPlaceholder];
+    [[ConsoliAdsMediation sharedInstance] loadRewardedVideo:[AppDelegate sharedInstance].configuration.selectedPlaceholder];
 }
 
 -(void)showRewardedAds {
